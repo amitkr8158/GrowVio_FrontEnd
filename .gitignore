@@ -1,0 +1,35 @@
+# ── Environment / Secrets — NEVER COMMIT ──────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.e2e
+.env.test
+frontend/.env.production
+admin/.env.production
+
+# ── Node ───────────────────────────────────────────────────────────────────
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+
+# ── Test output ──────────────────────────────────────────────────────────
+frontend/tests/e2e/reports/
+frontend/tests/e2e/screenshots/
+frontend/tests/e2e/test-results/
+frontend/test-results/
+
+# ── IDE ───────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+*.log
+logs/
