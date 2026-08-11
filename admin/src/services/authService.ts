@@ -1,14 +1,22 @@
 import apiClient from '../lib/apiClient';
 
-export type UserType = 'CONTENT_CREATOR' | 'ADMIN' | 'SUPER_ADMIN';
+export interface AdminUser {
+  id: number;
+  name: string;
+  email: string;
+  role: 'ADMIN' | 'SUPER_ADMIN' | 'CONTENT_CREATOR' | 'USER';
+  plan?: 'FREE' | 'STARTER' | 'PREMIUM' | 'PRO';
+  avatarUrl?: string;
+  bio?: string;
+  createdAt?: string;
+}
 
 export interface LoginResponse {
   token: string;
-  role: string;
-  email: string;
+  user: AdminUser;
 }
 
-export async function loginAdmin(email: string, password: string, userType: UserType): Promise<LoginResponse> {
-  const res = await apiClient.post<LoginResponse>('/api/auth/login', { email, password, userType });
+export async function loginAdmin(email: string, password: string): Promise<LoginResponse> {
+  const res = await apiClient.post<LoginResponse>('/api/auth/login', { email, password });
   return res.data;
 }
