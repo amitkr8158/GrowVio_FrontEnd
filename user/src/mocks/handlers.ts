@@ -1,5 +1,5 @@
 // Route table + dispatcher for the local mock backend. Every endpoint the
-// frontend's services/*.ts call is registered here — see mocked-data/README.md
+// user app's services/*.ts call is registered here — see mocked-data/README.md
 // for the full endpoint list this mirrors.
 import { db, persist, toPublicUser, toPublicBook, getAuthUser, makeToken } from './store'
 import { MOCK_GAMIFICATION_STATS, MOCK_LEADERBOARD } from './data/gamification'

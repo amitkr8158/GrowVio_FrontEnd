@@ -11,7 +11,7 @@ ENV VITE_AI_SERVICE_URL=/api/ai-svc
 RUN npm run build
 
 # ── Stage 2: Vite dev server (local Docker only — docker-compose.local.yml) ───
-# Runs Vite HMR so ./frontend/src volume-mount changes reload instantly.
+# Runs Vite HMR so ./user/src volume-mount changes reload instantly.
 # Port 3000 matches docker-compose.local.yml "3000:3000" port mapping.
 FROM node:20-alpine AS local-dev
 WORKDIR /app

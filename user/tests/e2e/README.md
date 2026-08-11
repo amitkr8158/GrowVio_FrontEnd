@@ -6,7 +6,7 @@ Automated tests that open a real Chrome browser, test every feature of
 ## How to run
 
 ```bash
-cd frontend
+cd user
 
 # Run all tests — generates HTML report
 npm run test:e2e
@@ -43,14 +43,14 @@ npm run test:e2e:local
 ## Test account
 
 Tests use `e2etest@growvio.in` — a dedicated QA account that is never used by real users.
-Credentials are in `frontend/.env.e2e` (gitignored).
+Credentials are in `user/.env.e2e` (gitignored).
 
 ## CI/CD integration
 
 ```yaml
 # In your GitHub Actions workflow:
 - name: Run E2E tests
-  run: cd frontend && npm run test:e2e
+  run: cd user && npm run test:e2e
   env:
     E2E_BASE_URL: https://dev.growvio.in
     E2E_TEST_EMAIL: ${{ secrets.E2E_TEST_EMAIL }}

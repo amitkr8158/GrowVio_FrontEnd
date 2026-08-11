@@ -83,7 +83,7 @@ apiClient.interceptors.response.use(
 )
 
 // Local-only: serve every request from the in-browser mock backend instead
-// of the real gateway. Enabled via VITE_USE_MOCKS=true (see frontend/.env.local).
+// of the real gateway. Enabled via VITE_USE_MOCKS=true (see user/.env.local).
 if (ENV.useMocks) installMockAdapter(apiClient)
 
 export default apiClient

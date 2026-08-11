@@ -1,4 +1,4 @@
-# frontend
+# user
 
 **Stack:** React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui | **Deploy:** Vercel
 
@@ -8,7 +8,7 @@ Key routes: `/` (landing) · `/login` · `/signup` · `/home` (dashboard, protec
 
 **Run locally:**
 ```bash
-cd frontend
+cd user
 cp .env.example .env.local
 # Edit .env.local: VITE_GATEWAY_URL=http://localhost:8080
 npm install
