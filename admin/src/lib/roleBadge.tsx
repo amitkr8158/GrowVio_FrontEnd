@@ -1,6 +1,6 @@
 // Shared display metadata for every account "type" in the system —
 // the 3 admin-portal roles plus the 4 plan tiers a regular end user
-// (role: USER, from the frontend app) can be on. The admin portal itself
+// (role: USER, from the user app) can be on. The admin portal itself
 // only ever authenticates ADMIN / SUPER_ADMIN / CONTENT_CREATOR (see
 // requireAdmin in mocks/handlers.ts), but Profile/Layout render whichever
 // type the signed-in account actually has, so the full map lives here.
