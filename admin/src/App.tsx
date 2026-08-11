@@ -14,6 +14,7 @@ import { ContentEditorPage } from './pages/ContentEditorPage';
 import { RichEditorPage } from './pages/RichEditorPage';
 import { ContentCostsPage } from './pages/ContentCostsPage';
 import { AbTestPage } from './pages/AbTestPage';
+import { ProfilePage } from './pages/ProfilePage';
 
 const qc = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 5 * 60 * 1000 } },
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/books/:bookId/levels/:levelNumber/editor" element={<RichEditorPage />} />
                     <Route path="/books/:bookId/levels/:levelNumber/ab-test" element={<AbTestPage />} />
                     <Route path="/content-costs" element={<ContentCostsPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                   </Routes>
                 </Layout>
               </ProtectedRoute>

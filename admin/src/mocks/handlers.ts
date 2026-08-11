@@ -88,7 +88,15 @@ on('POST', '/api/auth/login', ({ body }) => {
   const email = String(body.email || '').toLowerCase();
   const user = db.users.find((u) => u.email.toLowerCase() === email);
   if (!user || user.password !== body.password) return fail(401, 'Invalid email or password');
-  return ok({ token: makeToken(user.id), role: user.role, email: user.email });
+  if (!['ADMIN', 'SUPER_ADMIN', 'CONTENT_CREATOR'].includes(user.role)) {
+    return fail(403, 'This account does not have access to the admin portal.');
+  }
+  return ok({ token: makeToken(user.id), user: toPublicUser(user) });
+});
+
+on('GET', '/api/auth/me', (ctx) => {
+  const guard = requireAuth(ctx); if (guard) return guard;
+  return ok(toPublicUser(ctx.auth as AnyRecord));
 });
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -275,11 +283,47 @@ on('GET', '/api/admin/books/:bookId/levels/:level/preview', (ctx) => {
 
 on('GET', '/api/admin/analytics/content-costs', (ctx) => {
   const guard = requireAdmin(ctx); if (guard) return guard;
+
+  // Shape matches ContentCostData in pages/ContentCostsPage.tsx.
+  const costByLevel: Record<number, number> = {
+    1: 8.40, 2: 14.85, 3: 6.20, 4: 42.30, 5: 38.10, 6: 19.75, 7: 11.92,
+  };
+  const totalCostUsd = Object.values(costByLevel).reduce((sum, v) => sum + v, 0);
+  const costByModel = {
+    'claude-sonnet-4-5-20250929': Number((totalCostUsd * 0.795).toFixed(2)),
+    'claude-haiku-4-5-20251001': Number((totalCostUsd * 0.205).toFixed(2)),
+  };
+
+  const booksGenerated = db.books.length;
+  const levelsGenerated = Object.values(db.levelStatus)
+    .reduce((sum, levels) => sum + levels.filter((l: AnyRecord) => l.status === 'PUBLISHED').length, 0);
+
+  const MODELS = Object.keys(costByModel);
+  const recentGenerations = db.books.slice(0, 6).flatMap((b, i) => {
+    const levels = db.levelStatus[b.id] || [];
+    const lvl = levels[i % levels.length];
+    if (!lvl) return [];
+    return [{
+      bookId: b.id,
+      levelNumber: lvl.level,
+      model: MODELS[i % MODELS.length],
+      costUsd: Number((1.2 + i * 0.85).toFixed(4)),
+      generatedAt: new Date(Date.now() - i * 86400000).toISOString(),
+      generatedBy: 'admin@growvio.dev',
+      success: true,
+    }];
+  });
+
   return ok({
-    totalSpendUsd: 184.32,
-    totalTokens: 9821450,
-    byModel: { 'claude-sonnet-4-20250514': 184.32 },
-    byBook: db.books.slice(0, 5).map((b, i) => ({ bookId: b.id, spendUsd: Number((20 - i * 2.3).toFixed(2)) })),
+    totalCostUsd: Number(totalCostUsd.toFixed(2)),
+    thisMonthCostUsd: Number((totalCostUsd * 0.33).toFixed(2)),
+    booksGenerated,
+    levelsGenerated,
+    avgCostPerBook: Number((totalCostUsd / Math.max(booksGenerated, 1)).toFixed(4)),
+    avgCostPerLevel: Number((totalCostUsd / Math.max(levelsGenerated, 1)).toFixed(4)),
+    costByLevel,
+    costByModel,
+    recentGenerations,
   });
 });
 

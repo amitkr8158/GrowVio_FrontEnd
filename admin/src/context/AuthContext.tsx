@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
+import type { AdminUser } from '../services/authService';
 
 interface AuthState {
   token: string | null;
-  user: { email: string; role: string } | null;
-  login: (token: string, user: any) => void;
+  user: AdminUser | null;
+  login: (token: string, user: AdminUser) => void;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -15,11 +16,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(
     () => localStorage.getItem('admin_token')
   );
-  const [user, setUser] = useState<any>(() => {
+  const [user, setUser] = useState<AdminUser | null>(() => {
     const u = localStorage.getItem('admin_user');
     return u ? JSON.parse(u) : null;
   });
-  const login = (t: string, u: any) => {
+  const login = (t: string, u: AdminUser) => {
     localStorage.setItem('admin_token', t);
     localStorage.setItem('admin_user', JSON.stringify(u));
     setToken(t);
