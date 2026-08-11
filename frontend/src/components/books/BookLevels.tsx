@@ -23,6 +23,9 @@ function LevelTabContent({ bookId, level, freeSummary }: { bookId: string; level
   });
 
   const content = level.id === 1 ? freeSummary : data?.data?.content;
+  // For now, every level's mock content ships a pre-built PDF (see mocked-data/Book)
+  // — show that directly instead of the structured JSON underneath it.
+  const pdfUrl: string | null = (typeof content === "object" && content?.pdfUrl) || null;
 
   if (isLoading) {
     return (
@@ -47,11 +50,26 @@ function LevelTabContent({ bookId, level, freeSummary }: { bookId: string; level
   return (
     <div className="bg-background border border-border rounded-xl p-6">
       <h2 className="font-display text-xl font-bold text-ink-1 mb-4">{level.emoji} {level.name}</h2>
-      <div className="prose max-w-none text-ink-2" style={{ lineHeight: 1.8 }}>
-        {content.split("\n\n").map((p: string, i: number) => (
-          <p key={i} className="mb-4">{p}</p>
-        ))}
-      </div>
+      {pdfUrl ? (
+        <div className="space-y-3">
+          <iframe
+            src={pdfUrl}
+            title={`${level.name} PDF`}
+            className="w-full h-[75vh] rounded-lg border border-border"
+          />
+          <div className="text-center">
+            <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
+              Open PDF in a new tab &rarr;
+            </a>
+          </div>
+        </div>
+      ) : typeof content === "string" ? (
+        <div className="prose max-w-none text-ink-2" style={{ lineHeight: 1.8 }}>
+          {content.split("\n\n").map((p: string, i: number) => (
+            <p key={i} className="mb-4">{p}</p>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -38,6 +38,14 @@ export interface SearchResult {
   durationMs: number
 }
 
+// Shape of a single reading level's content. `pdfUrl` points at the
+// pre-built PDF for that level (see mocked-data/Book); the rest of the
+// fields are level-specific structured content for a future custom renderer.
+export interface BookLevelContent {
+  pdfUrl?: string | null
+  [key: string]: unknown
+}
+
 export const bookService = {
   getAll:      (params?: Record<string, unknown>) => apiClient.get<Book[]>('/api/books', { params }),
   getById:     (id: string)                       => apiClient.get<Book>(`/api/books/${id}`),
@@ -48,6 +56,6 @@ export const bookService = {
   update:     (id: string, data: unknown)        => apiClient.put(`/api/books/${id}`, data),
   remove:     (id: string)                       => apiClient.delete(`/api/books/${id}`),
   analytics:  ()                                 => apiClient.get('/api/admin/books/analytics'),
-  getLevel:   (bookId: string, level: number)    => apiClient.get<{ success: boolean; data: { level: number; content: string } }>(`/api/books/${bookId}/level/${level}`),
+  getLevel:   (bookId: string, level: number)    => apiClient.get<{ success: boolean; data: { level: number; content: BookLevelContent | string } }>(`/api/books/${bookId}/level/${level}`),
   getStatus:  (bookId: string)                   => apiClient.get(`/api/books/${bookId}/status`),
 }

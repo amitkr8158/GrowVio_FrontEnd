@@ -106,5 +106,18 @@ export const MOCK_USERS = [
     "createdAt": "2025-01-05T08:00:00Z",
     "favorites": [],
     "shortlist": []
+  },
+  {
+    "id": 2,
+    "name": "Meera Nair",
+    "email": "superadmin@growvio.dev",
+    "password": "SuperAdmin@123",
+    "role": "SUPER_ADMIN",
+    "plan": "PRO",
+    "avatarUrl": "https://api.dicebear.com/7.x/avataaars/svg?seed=Meera",
+    "bio": "Super admin — full platform access across every admin role.",
+    "createdAt": "2025-01-01T08:00:00Z",
+    "favorites": [],
+    "shortlist": []
   }
 ] as const

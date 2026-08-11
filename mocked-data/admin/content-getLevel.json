@@ -13,6 +13,7 @@
     "status": "PUBLISHED",
     "requiredPlan": "FREE",
     "content": {
+      "pdfUrl": "/books/level1/atomic-habits.pdf",
       "keyPoints": [
         {
           "order": 1,

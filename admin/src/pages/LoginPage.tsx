@@ -6,7 +6,14 @@ import { useState } from 'react';
 import { loginAdmin } from '../services/authService';
 import { useAuth } from '../hooks/useAuth';
 
+const USER_TYPES = [
+  { value: 'CONTENT_CREATOR', label: 'Content Creator' },
+  { value: 'ADMIN', label: 'Admin' },
+  { value: 'SUPER_ADMIN', label: 'Super Admin' },
+] as const;
+
 const schema = z.object({
+  userType: z.enum(['CONTENT_CREATOR', 'ADMIN', 'SUPER_ADMIN'], { message: 'Select a user type' }),
   email: z.string().email('Enter a valid email'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
 });
@@ -19,14 +26,15 @@ export function LoginPage() {
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({
     resolver: zodResolver(schema),
+    defaultValues: { userType: 'ADMIN' },
   });
 
   const onSubmit = async (values: FormValues) => {
     setApiError('');
     try {
-      const res = await loginAdmin(values.email, values.password);
-      if (res.role !== 'ADMIN') {
-        setApiError('No admin access — your account does not have the ADMIN role.');
+      const res = await loginAdmin(values.email, values.password, values.userType);
+      if (res.role !== values.userType) {
+        setApiError(`This account is registered as ${res.role.replace('_', ' ')}, not ${values.userType.replace('_', ' ')}. Select the matching user type and try again.`);
         return;
       }
       localStorage.setItem('admin_email', values.email);
@@ -47,6 +55,19 @@ export function LoginPage() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">User Type</label>
+            <select
+              {...register('userType')}
+              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+              {USER_TYPES.map((t) => (
+                <option key={t.value} value={t.value}>{t.label}</option>
+              ))}
+            </select>
+            {errors.userType && <p className="mt-1 text-xs text-red-600">{errors.userType.message}</p>}
+          </div>
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
