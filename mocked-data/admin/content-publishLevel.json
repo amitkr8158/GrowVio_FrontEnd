@@ -1,0 +1,16 @@
+{
+  "service": "contentService",
+  "function": "publishLevel",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/publish",
+  "description": "Publish a level, making it visible to end users.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "success": true,
+    "level": 4,
+    "status": "PUBLISHED"
+  }
+}

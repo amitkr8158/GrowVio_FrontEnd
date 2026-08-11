@@ -1,0 +1,22 @@
+{
+  "service": "socialService",
+  "function": "createReview",
+  "method": "POST",
+  "endpoint": "/api/social/books/:bookId/reviews",
+  "description": "Submit a new review for a book.",
+  "request": {
+    "bookId": "bk_1001",
+    "rating": 5,
+    "text": "Absolutely loved the summary!"
+  },
+  "response": {
+    "id": "rev_3",
+    "bookId": "bk_1001",
+    "userId": 501,
+    "name": "Priya Sharma",
+    "rating": 5,
+    "text": "Absolutely loved the summary!",
+    "helpfulCount": 0,
+    "createdAt": "2026-08-11T09:10:00Z"
+  }
+}

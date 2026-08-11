@@ -1,0 +1,33 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel4",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/4)",
+  "description": "Generate Level 4 (Deep Dive) narrative via Claude, then save as a DRAFT level with rendered markdown.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "targetWords": 1200
+  },
+  "response": {
+    "overview": "Atomic Habits argues that remarkable results come from tiny, consistent changes compounded over time...",
+    "chapters": [
+      {
+        "title": "The Habit Loop",
+        "subtitle": "Why You Cannot Just Try Harder",
+        "openingHook": "Your morning coffee run is not a choice — it is a program running on autopilot.",
+        "narrativeSummary": "Every habit follows cue, craving, response, reward...",
+        "keyTakeaways": [
+          "Make it obvious: design your environment for good cues",
+          "Make it easy: reduce friction to under 2 minutes"
+        ],
+        "memorableMoment": "The British Cycling team went from also-rans to Olympic champions by improving by just 1% in a hundred different areas."
+      }
+    ],
+    "conclusion": "Small habits, compounded daily, are the real engine of transformation.",
+    "oneAction": "Pick one 2-minute version of a habit you want to build and do it today.",
+    "theBigQuestion": "What identity are your daily habits voting for right now?",
+    "wordCount": 1187
+  }
+}

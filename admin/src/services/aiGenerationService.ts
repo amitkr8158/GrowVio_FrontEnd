@@ -1,10 +1,31 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { updateLevel } from './contentService';
+import { ENV } from '../lib/env';
+import { db as mockDb } from '../mocks/store';
 
 const getClient = () => new Anthropic({
   apiKey: import.meta.env.VITE_CLAUDE_API_KEY,
   dangerouslyAllowBrowser: true,
 });
+
+// ── Mock mode ────────────────────────────────────────────────────────────
+// This service calls Claude directly from the browser, bypassing apiClient
+// (and therefore the axios mock adapter). When VITE_USE_MOCKS=true, short-
+// circuit here instead: pull the pre-written level content that ships with
+// the seeded book fixtures and save it exactly like a real generation would.
+async function mockGenerateLevel(bookId: string, level: number, requiredPlan: string): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const book = mockDb.books.find((b: any) => b.id === bookId);
+  const content = book?.[`level${level}`];
+  if (!content) {
+    throw new Error(
+      `[Mock] No seeded level ${level} content for book "${bookId}". ` +
+      'Use one of the 10 seeded books (bk_1001..bk_1010) — see mocked-data/README.md.',
+    );
+  }
+  await new Promise((resolve) => setTimeout(resolve, 900)); // simulate generation latency
+  await updateLevel(bookId, level, { content, status: 'DRAFT', requiredPlan });
+}
 
 const SYSTEM_PROMPT = `You are a rare combination of three world-class
 minds working as one:
@@ -95,6 +116,7 @@ export async function generateLevel1(
   count: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 1, 'FREE');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}
@@ -160,6 +182,7 @@ export async function generateLevel2(
   count: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 2, 'FREE');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}
@@ -227,6 +250,7 @@ export async function generateLevel4(
   targetWords: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 4, 'STARTER');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}
@@ -352,6 +376,7 @@ export async function generateLevel5(
   hard: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 5, 'STARTER');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}
@@ -421,6 +446,7 @@ export async function generateLevel6(
   sections: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 6, 'STARTER');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}
@@ -484,6 +510,7 @@ export async function generateLevel7(
   targetWords: number,
   files?: SupportingFiles
 ): Promise<void> {
+  if (ENV.useMocks) return mockGenerateLevel(bookId, 7, 'STARTER');
   const supportingContext = buildSupportingContext(files);
 
   const prompt = `Book: "${title}" by ${author}

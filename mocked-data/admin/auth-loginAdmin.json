@@ -1,0 +1,16 @@
+{
+  "service": "authService",
+  "function": "loginAdmin",
+  "method": "POST",
+  "endpoint": "/api/auth/login",
+  "description": "Authenticate an admin user.",
+  "request": {
+    "email": "admin@growvio.app",
+    "password": "Adm!nP@ssw0rd"
+  },
+  "response": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mockadminpayload.signature",
+    "role": "ADMIN",
+    "email": "admin@growvio.app"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "service": "userService",
+  "function": "shortlist",
+  "method": "POST",
+  "endpoint": "/api/users/books/:bookId/shortlist",
+  "description": "Toggle a book as shortlisted for the authenticated user.",
+  "request": {
+    "bookId": "bk_1002"
+  },
+  "response": {
+    "success": true,
+    "bookId": "bk_1002",
+    "shortlisted": true
+  }
+}

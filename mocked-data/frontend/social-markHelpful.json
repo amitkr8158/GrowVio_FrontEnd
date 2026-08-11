@@ -1,0 +1,20 @@
+{
+  "service": "socialService",
+  "function": "markHelpful",
+  "method": "POST",
+  "endpoint": "/api/social/reviews/:reviewId/helpful",
+  "description": "Mark a review as helpful.",
+  "request": {
+    "reviewId": "rev_1"
+  },
+  "response": {
+    "id": "rev_1",
+    "bookId": "bk_1001",
+    "userId": 501,
+    "name": "Priya Sharma",
+    "rating": 5,
+    "text": "Changed how I build habits!",
+    "helpfulCount": 25,
+    "createdAt": "2026-01-14T10:00:00Z"
+  }
+}

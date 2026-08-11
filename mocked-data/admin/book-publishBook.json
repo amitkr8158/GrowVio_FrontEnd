@@ -1,0 +1,15 @@
+{
+  "service": "bookService",
+  "function": "publishBook",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/publish",
+  "description": "Publish a book, making it visible to end users.",
+  "request": {
+    "bookId": "bk_1002"
+  },
+  "response": {
+    "success": true,
+    "bookId": "bk_1002",
+    "status": "PUBLISHED"
+  }
+}

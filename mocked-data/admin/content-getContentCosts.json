@@ -1,0 +1,21 @@
+{
+  "service": "contentService",
+  "function": "getContentCosts",
+  "method": "GET",
+  "endpoint": "/api/admin/analytics/content-costs",
+  "description": "Fetch AI generation cost analytics across all books.",
+  "request": null,
+  "response": {
+    "totalSpendUsd": 184.32,
+    "totalTokens": 9821450,
+    "byModel": {
+      "claude-sonnet-4-20250514": 184.32
+    },
+    "byBook": [
+      {
+        "bookId": "bk_1001",
+        "spendUsd": 12.4
+      }
+    ]
+  }
+}

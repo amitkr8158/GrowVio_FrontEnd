@@ -1,0 +1,16 @@
+{
+  "service": "uploadService",
+  "function": "uploadReferencePdf",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/reference/pdf",
+  "description": "Upload a reference PDF used as AI-generation source material (multipart/form-data).",
+  "request": {
+    "bookId": "bk_1001",
+    "file": "(binary) atomic-habits-source.pdf"
+  },
+  "response": {
+    "url": "https://cdn.growvio.app/refs/atomic-habits-source.pdf",
+    "key": "refs/bk_1001/source.pdf",
+    "uploadedAt": "2026-08-11T09:00:00Z"
+  }
+}

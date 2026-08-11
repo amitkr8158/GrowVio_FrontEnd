@@ -1,0 +1,26 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel2",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/2)",
+  "description": "Generate Level 2 (Flashcards) via Claude, then save as a DRAFT level.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "count": 5
+  },
+  "response": {
+    "cards": [
+      {
+        "order": 1,
+        "title": "Identity-Based Habits",
+        "body": "92% of resolutions fail because they target outcomes, not identity. Instead of \"I want to read more,\" think \"I am a reader.\" Olympic athletes train identity first, results follow. Ask yourself: who do you want to become today?",
+        "visualDirection": "minimal line art, mirror, warm light",
+        "quote": "Every action is a vote for the type of person you wish to become.",
+        "cardType": "MINDBLOWN",
+        "colorMood": "DEEP"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "service": "userService",
+  "function": "getHistory",
+  "method": "GET",
+  "endpoint": "/api/users/history",
+  "description": "Fetch the reading history of the authenticated user.",
+  "request": null,
+  "response": [
+    {
+      "bookId": "bk_1001",
+      "title": "Atomic Habits",
+      "lastReadLevel": 3,
+      "progress": 0.6,
+      "lastReadAt": "2026-08-10T18:22:00Z"
+    },
+    {
+      "bookId": "bk_1002",
+      "title": "Deep Work",
+      "lastReadLevel": 1,
+      "progress": 0.15,
+      "lastReadAt": "2026-08-05T09:10:00Z"
+    }
+  ]
+}

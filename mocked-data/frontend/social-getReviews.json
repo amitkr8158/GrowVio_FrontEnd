@@ -1,0 +1,36 @@
+{
+  "service": "socialService",
+  "function": "getReviews",
+  "method": "GET",
+  "endpoint": "/api/social/books/:bookId/reviews",
+  "description": "Paginated list of reviews for a book.",
+  "request": {
+    "bookId": "bk_1001",
+    "params": {
+      "page": 0,
+      "size": 20
+    }
+  },
+  "response": [
+    {
+      "id": "rev_1",
+      "bookId": "bk_1001",
+      "userId": 501,
+      "name": "Priya Sharma",
+      "rating": 5,
+      "text": "Changed how I build habits!",
+      "helpfulCount": 24,
+      "createdAt": "2026-01-14T10:00:00Z"
+    },
+    {
+      "id": "rev_2",
+      "bookId": "bk_1001",
+      "userId": 512,
+      "name": "Arjun Mehta",
+      "rating": 4,
+      "text": "Great, practical takeaways.",
+      "helpfulCount": 9,
+      "createdAt": "2026-02-02T15:30:00Z"
+    }
+  ]
+}

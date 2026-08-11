@@ -2,6 +2,7 @@ import axios from 'axios'
 import type { InternalAxiosRequestConfig } from 'axios'
 import { ENV } from '@/config/env'
 import { logger } from '@/lib/logger'
+import { installMockAdapter } from '@/mocks/mockAdapter'
 
 declare module 'axios' {
   interface InternalAxiosRequestConfig {
@@ -80,5 +81,9 @@ apiClient.interceptors.response.use(
     return Promise.reject(error)
   },
 )
+
+// Local-only: serve every request from the in-browser mock backend instead
+// of the real gateway. Enabled via VITE_USE_MOCKS=true (see frontend/.env.local).
+if (ENV.useMocks) installMockAdapter(apiClient)
 
 export default apiClient

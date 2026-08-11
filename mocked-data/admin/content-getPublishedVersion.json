@@ -1,0 +1,21 @@
+{
+  "service": "contentService",
+  "function": "getPublishedVersion",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/published",
+  "description": "Fetch the currently published version of a level.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "version": 6,
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "The Habit Loop"
+      }
+    ],
+    "publishedAt": "2026-06-18T14:02:00Z"
+  }
+}

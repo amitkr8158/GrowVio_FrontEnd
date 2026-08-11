@@ -1,0 +1,21 @@
+{
+  "service": "aiService",
+  "function": "generateFromPdf",
+  "method": "POST",
+  "endpoint": "/ai/generate-summary",
+  "description": "Upload a PDF and generate an AI-authored book summary (multipart/form-data).",
+  "request": {
+    "file": "(binary) atomic-habits-source.pdf",
+    "title": "Atomic Habits",
+    "author": "James Clear"
+  },
+  "response": {
+    "success": true,
+    "message": "Summary generation started",
+    "data": {
+      "bookId": "bk_1001",
+      "jobId": "job_8f3c1a2b",
+      "status": "PROCESSING"
+    }
+  }
+}

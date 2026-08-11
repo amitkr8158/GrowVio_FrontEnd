@@ -1,0 +1,12 @@
+{
+  "service": "contentService",
+  "function": "cancelSchedule",
+  "method": "DELETE",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/schedule",
+  "description": "Cancel a scheduled publish for a level.",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 5
+  },
+  "response": null
+}

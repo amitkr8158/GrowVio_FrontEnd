@@ -1,0 +1,15 @@
+{
+  "service": "contentService",
+  "function": "getPreviewInfo",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/preview",
+  "description": "Fetch a shareable preview link/info for a draft level.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "previewUrl": "https://app.growvio.app/preview/bk_1001/level/4?token=pv_9a8b7c",
+    "expiresAt": "2026-08-12T09:00:00Z"
+  }
+}

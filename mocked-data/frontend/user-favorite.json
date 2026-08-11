@@ -1,0 +1,15 @@
+{
+  "service": "userService",
+  "function": "favorite",
+  "method": "POST",
+  "endpoint": "/api/users/books/:bookId/favorite",
+  "description": "Toggle a book as favorited for the authenticated user.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": {
+    "success": true,
+    "bookId": "bk_1001",
+    "favorited": true
+  }
+}

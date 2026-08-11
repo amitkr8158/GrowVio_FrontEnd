@@ -1,0 +1,47 @@
+{
+  "service": "bookService",
+  "function": "update",
+  "method": "PUT",
+  "endpoint": "/api/books/:id",
+  "description": "Update an existing book.",
+  "request": {
+    "id": "bk_1001",
+    "data": {
+      "title": "Atomic Habits (Updated Edition)"
+    }
+  },
+  "response": {
+    "id": "bk_1001",
+    "slug": "atomic-habits",
+    "title": "Atomic Habits (Updated Edition)",
+    "author": "James Clear",
+    "genre": "Self-Help",
+    "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+    "coverEmoji": "⚛️",
+    "domain": "Productivity",
+    "isFeaturedFree": true,
+    "isPremium": false,
+    "freeSummary": "Small habits compound into remarkable results over time.",
+    "premiumSummary": "A deep dive into the 4 laws of behavior change...",
+    "keyPoints": [
+      "Habits are the compound interest of self-improvement",
+      "Focus on systems, not goals",
+      "Make good habits obvious, attractive, easy, and satisfying"
+    ],
+    "eli5Summary": "Tiny changes every day add up to big results, like a snowball rolling downhill.",
+    "tags": [
+      "habits",
+      "productivity",
+      "self-improvement"
+    ],
+    "rating": 4.7,
+    "totalReads": 18234,
+    "hindiTitle": "एटॉमिक हैबिट्स",
+    "hindiFreeSummary": "छोटी आदतें समय के साथ बड़े परिणाम देती हैं।",
+    "averageRating": 4.7,
+    "readCount": 18234,
+    "status": "PUBLISHED",
+    "createdAt": "2025-11-02T09:15:00Z",
+    "updatedAt": "2026-08-11T09:05:00Z"
+  }
+}

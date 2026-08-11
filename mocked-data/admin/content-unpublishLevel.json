@@ -1,0 +1,16 @@
+{
+  "service": "contentService",
+  "function": "unpublishLevel",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/unpublish",
+  "description": "Unpublish a level, hiding it from end users.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "success": true,
+    "level": 4,
+    "status": "DRAFT"
+  }
+}

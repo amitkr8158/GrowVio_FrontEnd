@@ -1,0 +1,18 @@
+{
+  "service": "uploadService",
+  "function": "uploadLevel4Pdf",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/4/pdf",
+  "description": "Upload a pre-made Level-4 (Deep Dive) PDF and extract text/metadata.",
+  "request": {
+    "bookId": "bk_1001",
+    "file": "(binary) deep-dive.pdf"
+  },
+  "response": {
+    "pdfUrl": "https://cdn.growvio.app/levels/bk_1001/4/deep-dive.pdf",
+    "pdfKey": "levels/bk_1001/4/deep-dive.pdf",
+    "pageCount": 18,
+    "wordCount": 4210,
+    "inlineText": "# Atomic Habits — The Deep Dive\n\nHabits are the compound interest of self-improvement..."
+  }
+}

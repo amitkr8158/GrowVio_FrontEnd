@@ -1,0 +1,22 @@
+{
+  "service": "bookService",
+  "function": "create",
+  "method": "POST",
+  "endpoint": "/api/books",
+  "description": "Create a new book (admin).",
+  "request": {
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "genre": "Finance",
+    "isPremium": false
+  },
+  "response": {
+    "id": "bk_1003",
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "genre": "Finance",
+    "isPremium": false,
+    "status": "DRAFT",
+    "createdAt": "2026-08-11T09:00:00Z"
+  }
+}

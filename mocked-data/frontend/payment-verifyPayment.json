@@ -1,0 +1,20 @@
+{
+  "service": "paymentService",
+  "function": "verifyPayment",
+  "method": "POST",
+  "endpoint": "/api/payments/verify?plan=:plan",
+  "description": "Verify a completed Razorpay payment and activate the plan.",
+  "request": {
+    "razorpayOrderId": "order_NkjX8yZ1mPq2Rt",
+    "razorpayPaymentId": "pay_NkjXAbC123xyz",
+    "razorpaySignature": "9f8e7d6c5b4a3210fedcba9876543210",
+    "plan": "PREMIUM"
+  },
+  "response": {
+    "success": true,
+    "sagaId": "saga_7a1b2c3d",
+    "completed": true,
+    "plan": "PREMIUM",
+    "message": "Payment verified and plan activated"
+  }
+}

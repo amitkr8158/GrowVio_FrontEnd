@@ -1,0 +1,52 @@
+{
+  "service": "bookService",
+  "function": "getAllBooks",
+  "method": "GET",
+  "endpoint": "/api/admin/books",
+  "description": "List books for the admin dashboard, filterable by status, paginated.",
+  "request": {
+    "params": {
+      "status": "ALL",
+      "page": 0,
+      "size": 20
+    }
+  },
+  "response": {
+    "books": [
+      {
+        "id": "bk_1001",
+        "title": "Atomic Habits",
+        "hindiTitle": "एटॉमिक हैबिट्स",
+        "author": "James Clear",
+        "genre": "Self-Help",
+        "tags": [
+          "habits",
+          "productivity"
+        ],
+        "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+        "isPremium": false,
+        "description": "An easy and proven way to build good habits and break bad ones.",
+        "status": "PUBLISHED",
+        "createdAt": "2025-11-02T09:15:00Z"
+      },
+      {
+        "id": "bk_1002",
+        "title": "Deep Work",
+        "hindiTitle": "एटॉमिक हैबिट्स",
+        "author": "Cal Newport",
+        "genre": "Self-Help",
+        "tags": [
+          "habits",
+          "productivity"
+        ],
+        "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+        "isPremium": false,
+        "description": "An easy and proven way to build good habits and break bad ones.",
+        "status": "DRAFT",
+        "createdAt": "2025-11-02T09:15:00Z"
+      }
+    ],
+    "total": 2,
+    "page": 0
+  }
+}

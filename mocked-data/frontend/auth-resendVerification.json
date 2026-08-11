@@ -1,0 +1,14 @@
+{
+  "service": "authService",
+  "function": "resendVerification",
+  "method": "POST",
+  "endpoint": "/api/auth/resend-verification",
+  "description": "Resend the email-verification link.",
+  "request": {
+    "email": "priya.sharma@example.com"
+  },
+  "response": {
+    "success": true,
+    "message": "Verification email sent"
+  }
+}

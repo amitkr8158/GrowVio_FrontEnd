@@ -1,0 +1,22 @@
+{
+  "service": "contentService",
+  "function": "listSupportingDocs",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/supporting-docs",
+  "description": "List reference documents (PDFs, infographics, transcripts) attached to a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": [
+    {
+      "type": "PDF",
+      "url": "https://cdn.growvio.app/refs/atomic-habits-source.pdf",
+      "uploadedAt": "2026-05-01T10:00:00Z"
+    },
+    {
+      "type": "INFOGRAPHIC",
+      "url": "https://cdn.growvio.app/refs/atomic-habits-infographic.png",
+      "uploadedAt": "2026-05-02T10:00:00Z"
+    }
+  ]
+}

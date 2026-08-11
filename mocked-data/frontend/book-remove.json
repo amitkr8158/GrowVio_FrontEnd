@@ -1,0 +1,14 @@
+{
+  "service": "bookService",
+  "function": "remove",
+  "method": "DELETE",
+  "endpoint": "/api/books/:id",
+  "description": "Delete a book.",
+  "request": {
+    "id": "bk_1003"
+  },
+  "response": {
+    "success": true,
+    "message": "Book deleted"
+  }
+}

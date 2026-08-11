@@ -1,0 +1,14 @@
+{
+  "service": "userService",
+  "function": "adminStats",
+  "method": "GET",
+  "endpoint": "/api/admin/analytics/active-users",
+  "description": "Fetch active-user analytics (admin only).",
+  "request": null,
+  "response": {
+    "dailyActiveUsers": 2140,
+    "weeklyActiveUsers": 8930,
+    "monthlyActiveUsers": 21870,
+    "newSignupsToday": 64
+  }
+}

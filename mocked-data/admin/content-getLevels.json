@@ -1,0 +1,57 @@
+{
+  "service": "contentService",
+  "function": "getLevels",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels",
+  "description": "Fetch the status summary of all 7 reading levels for a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": {
+    "bookId": "bk_1001",
+    "levels": [
+      {
+        "level": 1,
+        "name": "Key Points",
+        "status": "PUBLISHED",
+        "requiredPlan": "FREE"
+      },
+      {
+        "level": 2,
+        "name": "Flashcards",
+        "status": "PUBLISHED",
+        "requiredPlan": "FREE"
+      },
+      {
+        "level": 3,
+        "name": "Infographic",
+        "status": "DRAFT",
+        "requiredPlan": "FREE"
+      },
+      {
+        "level": 4,
+        "name": "Deep Dive",
+        "status": "DRAFT",
+        "requiredPlan": "STARTER"
+      },
+      {
+        "level": 5,
+        "name": "Quiz",
+        "status": "NOT_STARTED",
+        "requiredPlan": "STARTER"
+      },
+      {
+        "level": 6,
+        "name": "Workbook",
+        "status": "NOT_STARTED",
+        "requiredPlan": "STARTER"
+      },
+      {
+        "level": 7,
+        "name": "Cheat Sheet",
+        "status": "NOT_STARTED",
+        "requiredPlan": "STARTER"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "service": "bookService",
+  "function": "deleteBook",
+  "method": "DELETE",
+  "endpoint": "/api/admin/books/:bookId",
+  "description": "Delete a book record.",
+  "request": {
+    "bookId": "bk_1003"
+  },
+  "response": null
+}

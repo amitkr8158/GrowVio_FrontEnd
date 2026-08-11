@@ -1,0 +1,14 @@
+{
+  "service": "userService",
+  "function": "deleteNote",
+  "method": "DELETE",
+  "endpoint": "/api/users/notes/:noteId",
+  "description": "Delete a note.",
+  "request": {
+    "noteId": "note_2"
+  },
+  "response": {
+    "success": true,
+    "message": "Note deleted"
+  }
+}

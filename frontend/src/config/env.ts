@@ -11,6 +11,9 @@ export const ENV = {
   isDev: import.meta.env.VITE_APP_ENV === 'dev',
   isStaging: import.meta.env.VITE_APP_ENV === 'staging',
   isPreprod: import.meta.env.VITE_APP_ENV === 'preprod',
+  // When true, apiClient serves every request from the local mock backend
+  // (see src/mocks/) instead of calling the real gateway. See mocked-data/README.md.
+  useMocks: import.meta.env.VITE_USE_MOCKS === 'true',
 } as const;
 
 export type AppEnv = 'dev' | 'staging' | 'preprod' | 'production';

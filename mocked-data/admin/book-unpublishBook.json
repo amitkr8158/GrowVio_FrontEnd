@@ -1,0 +1,15 @@
+{
+  "service": "bookService",
+  "function": "unpublishBook",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/unpublish",
+  "description": "Unpublish a book, hiding it from end users.",
+  "request": {
+    "bookId": "bk_1002"
+  },
+  "response": {
+    "success": true,
+    "bookId": "bk_1002",
+    "status": "DRAFT"
+  }
+}

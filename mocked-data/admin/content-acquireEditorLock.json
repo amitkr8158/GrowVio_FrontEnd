@@ -1,0 +1,16 @@
+{
+  "service": "contentService",
+  "function": "acquireEditorLock",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/editor-lock",
+  "description": "Acquire a collaborative-edit lock on a level before editing.",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 4
+  },
+  "response": {
+    "sessionId": "sess_a1b2c3d4",
+    "lockedBy": "admin@growvio.app",
+    "expiresAt": "2026-08-11T09:35:00Z"
+  }
+}

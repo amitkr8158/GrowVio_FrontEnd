@@ -1,0 +1,14 @@
+{
+  "service": "socialService",
+  "function": "getRating",
+  "method": "GET",
+  "endpoint": "/api/social/books/:bookId/rating",
+  "description": "Fetch aggregate rating summary for a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": {
+    "averageRating": 4.7,
+    "totalReviews": 312
+  }
+}

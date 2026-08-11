@@ -1,0 +1,16 @@
+{
+  "service": "contentService",
+  "function": "getVersionStatus",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/version-status",
+  "description": "Check draft vs. published version drift for a level.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "draftVersion": 6,
+    "publishedVersion": 5,
+    "hasUnpublishedChanges": true
+  }
+}

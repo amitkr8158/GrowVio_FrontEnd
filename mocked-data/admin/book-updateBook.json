@@ -1,0 +1,30 @@
+{
+  "service": "bookService",
+  "function": "updateBook",
+  "method": "PUT",
+  "endpoint": "/api/admin/books/:bookId",
+  "description": "Update fields on an existing book.",
+  "request": {
+    "bookId": "bk_1001",
+    "data": {
+      "description": "Updated description text."
+    }
+  },
+  "response": {
+    "id": "bk_1001",
+    "title": "Atomic Habits",
+    "hindiTitle": "एटॉमिक हैबिट्स",
+    "author": "James Clear",
+    "genre": "Self-Help",
+    "tags": [
+      "habits",
+      "productivity"
+    ],
+    "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+    "isPremium": false,
+    "description": "Updated description text.",
+    "status": "PUBLISHED",
+    "createdAt": "2025-11-02T09:15:00Z",
+    "updatedAt": "2026-08-11T09:05:00Z"
+  }
+}

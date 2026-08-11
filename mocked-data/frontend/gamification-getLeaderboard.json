@@ -1,0 +1,36 @@
+{
+  "service": "gamificationService",
+  "function": "getLeaderboard",
+  "method": "GET",
+  "endpoint": "/api/gamification/leaderboard",
+  "description": "Fetch the leaderboard (weekly/monthly/all-time), size configurable.",
+  "request": {
+    "params": {
+      "limit": 10,
+      "type": "weekly"
+    }
+  },
+  "response": [
+    {
+      "rank": 1,
+      "name": "Arjun Mehta",
+      "xp": 6120,
+      "books": 14,
+      "trend": "up"
+    },
+    {
+      "rank": 2,
+      "name": "Sneha Kapoor",
+      "xp": 5890,
+      "books": 12,
+      "trend": "same"
+    },
+    {
+      "rank": 3,
+      "name": "Priya Sharma",
+      "xp": 4820,
+      "books": 9,
+      "trend": "up"
+    }
+  ]
+}

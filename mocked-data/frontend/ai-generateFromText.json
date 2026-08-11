@@ -1,0 +1,22 @@
+{
+  "service": "aiService",
+  "function": "generateFromText",
+  "method": "POST",
+  "endpoint": "/ai/generate-from-text",
+  "description": "Generate an AI-authored book summary from raw text input.",
+  "request": {
+    "text": "Full book text or excerpt goes here...",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "bookId": "bk_1001"
+  },
+  "response": {
+    "success": true,
+    "message": "Summary generation started",
+    "data": {
+      "bookId": "bk_1001",
+      "jobId": "job_2b7e9c31",
+      "status": "QUEUED"
+    }
+  }
+}

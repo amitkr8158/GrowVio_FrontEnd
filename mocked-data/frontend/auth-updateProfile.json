@@ -1,0 +1,18 @@
+{
+  "service": "authService",
+  "function": "updateProfile",
+  "method": "PUT",
+  "endpoint": "/api/users/me",
+  "description": "Update the authenticated user display name.",
+  "request": {
+    "name": "Priya S. Sharma"
+  },
+  "response": {
+    "id": 501,
+    "name": "Priya S. Sharma",
+    "email": "priya.sharma@example.com",
+    "role": "USER",
+    "plan": "PREMIUM",
+    "createdAt": "2025-09-12T06:45:00Z"
+  }
+}

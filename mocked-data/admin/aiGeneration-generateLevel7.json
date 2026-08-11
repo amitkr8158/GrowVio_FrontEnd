@@ -1,0 +1,17 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel7",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/7)",
+  "description": "Generate Level 7 (Cheat Sheet markdown) via Claude, then save as a DRAFT level.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "targetWords": 600
+  },
+  "response": {
+    "richText": "## 🧠 The Core Idea\nRemarkable results come from tiny habits compounded daily, not from massive one-off efforts.\n\n## ⚡ The Framework\nCue → Craving → Response → Reward\n\n## 🚀 The One Action\nPick a 2-minute version of the habit you want and do it today.",
+    "wordCount": 580
+  }
+}

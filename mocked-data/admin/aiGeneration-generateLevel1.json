@@ -1,0 +1,31 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel1",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/1)",
+  "description": "Generate Level 1 (Key Points) via Claude, then save as a DRAFT level.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "count": 5
+  },
+  "response": {
+    "keyPoints": [
+      {
+        "order": 1,
+        "heading": "Your brain is lying to you every morning",
+        "description": "Willpower fails 92% of the time within 3 months. Stanford research shows systems beat motivation. This is why New Year resolutions collapse by February.",
+        "emoji": "🧠",
+        "impactScore": "MINDBLOWN"
+      },
+      {
+        "order": 2,
+        "heading": "The 2-minute rule that destroys procrastination",
+        "description": "Shrink any habit to under 2 minutes to start. James Clear used this to write daily for 3 years straight. Starting small removes all friction.",
+        "emoji": "⏱️",
+        "impactScore": "ACTIONABLE"
+      }
+    ]
+  }
+}

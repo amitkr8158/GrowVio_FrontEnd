@@ -1,0 +1,19 @@
+{
+  "service": "contentService",
+  "function": "startAbTest",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/ab-test/start",
+  "description": "Start an A/B test between the current content (A) and a variant (B).",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 1,
+    "variantBContent": "{\"keyPoints\":[{\"heading\":\"Alt heading\"}]}"
+  },
+  "response": {
+    "success": true,
+    "abTestId": "ab_5f6e7d8c",
+    "level": 1,
+    "status": "RUNNING",
+    "startedAt": "2026-08-11T09:26:00Z"
+  }
+}

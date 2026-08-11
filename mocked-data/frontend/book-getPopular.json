@@ -1,0 +1,74 @@
+{
+  "service": "bookService",
+  "function": "getPopular",
+  "method": "GET",
+  "endpoint": "/api/books/popular",
+  "description": "List the most popular books by read count.",
+  "request": null,
+  "response": [
+    {
+      "id": "bk_1001",
+      "slug": "atomic-habits",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "genre": "Self-Help",
+      "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+      "coverEmoji": "⚛️",
+      "domain": "Productivity",
+      "isFeaturedFree": true,
+      "isPremium": false,
+      "freeSummary": "Small habits compound into remarkable results over time.",
+      "premiumSummary": "A deep dive into the 4 laws of behavior change...",
+      "keyPoints": [
+        "Habits are the compound interest of self-improvement",
+        "Focus on systems, not goals",
+        "Make good habits obvious, attractive, easy, and satisfying"
+      ],
+      "eli5Summary": "Tiny changes every day add up to big results, like a snowball rolling downhill.",
+      "tags": [
+        "habits",
+        "productivity",
+        "self-improvement"
+      ],
+      "rating": 4.7,
+      "totalReads": 18234,
+      "hindiTitle": "एटॉमिक हैबिट्स",
+      "hindiFreeSummary": "छोटी आदतें समय के साथ बड़े परिणाम देती हैं।",
+      "averageRating": 4.7,
+      "readCount": 18234,
+      "status": "PUBLISHED",
+      "createdAt": "2025-11-02T09:15:00Z",
+      "updatedAt": "2026-06-18T14:02:00Z"
+    },
+    {
+      "id": "bk_1002",
+      "slug": "deep-work",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "genre": "Productivity",
+      "coverImageUrl": "https://cdn.growvio.app/covers/deep-work.jpg",
+      "coverEmoji": "🧠",
+      "domain": "Focus",
+      "isFeaturedFree": false,
+      "isPremium": true,
+      "freeSummary": "The ability to focus without distraction is becoming increasingly rare and valuable.",
+      "premiumSummary": "A rigorous training regimen for cultivating deep, focused work.",
+      "keyPoints": [
+        "Deep work is the ability to focus without distraction on a cognitively demanding task",
+        "Shallow work is non-cognitively-demanding, logistical-style tasks",
+        "Schedule every minute of your day"
+      ],
+      "eli5Summary": "Turn off distractions and focus hard on one thing to get better results, faster.",
+      "tags": [
+        "focus",
+        "productivity",
+        "career"
+      ],
+      "rating": 4.5,
+      "totalReads": 9876,
+      "status": "PUBLISHED",
+      "createdAt": "2025-10-14T11:30:00Z",
+      "updatedAt": "2026-05-30T08:11:00Z"
+    }
+  ]
+}
