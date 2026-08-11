@@ -1,0 +1,24 @@
+{
+  "service": "contentService",
+  "function": "getAiDraft",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels/:level/ai-draft",
+  "description": "Fetch the latest AI-generated draft blocks for the rich editor.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 4
+  },
+  "response": {
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "The Habit Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every habit follows a loop: cue, craving, response, reward..."
+      }
+    ],
+    "generatedAt": "2026-08-10T12:00:00Z"
+  }
+}

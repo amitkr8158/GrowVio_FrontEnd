@@ -1,0 +1,16 @@
+{
+  "service": "authService",
+  "function": "verifyEmail",
+  "method": "GET",
+  "endpoint": "/api/auth/verify-email",
+  "description": "Verify a user email address using a token query param.",
+  "request": {
+    "params": {
+      "token": "vf_9c3a7b1e2d4f"
+    }
+  },
+  "response": {
+    "success": true,
+    "message": "Email verified successfully"
+  }
+}

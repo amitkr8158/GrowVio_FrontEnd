@@ -1,0 +1,53 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel5",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/5)",
+  "description": "Generate Level 5 (Quiz) via Claude, then save as a DRAFT level.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "easy": 3,
+    "medium": 2,
+    "hard": 2
+  },
+  "response": {
+    "totalQuestions": 7,
+    "easyCount": 3,
+    "mediumCount": 2,
+    "hardCount": 2,
+    "questions": [
+      {
+        "id": "q1",
+        "order": 1,
+        "difficulty": "EASY",
+        "question": "What are the 4 laws of behavior change?",
+        "options": [
+          "Obvious, Attractive, Easy, Satisfying",
+          "Simple, Fast, Cheap, Fun",
+          "Cue, Craving, Response, Reward loop only",
+          "None of the above"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 4 laws map directly to each stage of the habit loop.",
+        "conceptTested": "Four Laws of Behavior Change"
+      },
+      {
+        "id": "q6",
+        "order": 6,
+        "difficulty": "HARD",
+        "question": "Rahul joined a startup and wants to build a habit of daily code reviews, but his team culture rewards only shipped features. Based on the book, what is his biggest obstacle?",
+        "options": [
+          "His environment is not designed to make the habit attractive",
+          "He lacks willpower",
+          "Code reviews are inherently boring",
+          "He needs a bigger reward"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The book emphasizes environment design over willpower; team culture is the environment.",
+        "conceptTested": "Environment Design"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "service": "contentService",
+  "function": "updateLevel",
+  "method": "PUT",
+  "endpoint": "/api/admin/books/:bookId/levels/:level",
+  "description": "Overwrite the content, status, and required plan of a level.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 1,
+    "data": {
+      "content": {
+        "keyPoints": []
+      },
+      "status": "DRAFT",
+      "requiredPlan": "FREE"
+    }
+  },
+  "response": {
+    "success": true,
+    "level": 1,
+    "status": "DRAFT",
+    "updatedAt": "2026-08-11T09:20:00Z"
+  }
+}

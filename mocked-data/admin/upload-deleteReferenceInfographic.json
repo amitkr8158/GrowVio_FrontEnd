@@ -1,0 +1,11 @@
+{
+  "service": "uploadService",
+  "function": "deleteReferenceInfographic",
+  "method": "DELETE",
+  "endpoint": "/api/admin/books/:bookId/reference/infographic",
+  "description": "Delete the reference infographic attached to a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": null
+}

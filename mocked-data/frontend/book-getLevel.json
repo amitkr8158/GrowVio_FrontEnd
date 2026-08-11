@@ -1,0 +1,18 @@
+{
+  "service": "bookService",
+  "function": "getLevel",
+  "method": "GET",
+  "endpoint": "/api/books/:bookId/level/:level",
+  "description": "Fetch a specific reading level (1-7) of a book.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 1
+  },
+  "response": {
+    "success": true,
+    "data": {
+      "level": 1,
+      "content": "Key Point 1: Habits are the compound interest of self-improvement..."
+    }
+  }
+}

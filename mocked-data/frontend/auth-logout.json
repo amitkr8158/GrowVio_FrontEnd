@@ -1,0 +1,12 @@
+{
+  "service": "authService",
+  "function": "logout",
+  "method": "POST",
+  "endpoint": "/api/auth/logout",
+  "description": "Invalidate the current session token.",
+  "request": null,
+  "response": {
+    "success": true,
+    "message": "Logged out successfully"
+  }
+}

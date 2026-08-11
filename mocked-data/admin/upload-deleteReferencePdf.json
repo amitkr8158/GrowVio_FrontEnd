@@ -1,0 +1,11 @@
+{
+  "service": "uploadService",
+  "function": "deleteReferencePdf",
+  "method": "DELETE",
+  "endpoint": "/api/admin/books/:bookId/reference/pdf",
+  "description": "Delete the reference PDF attached to a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": null
+}

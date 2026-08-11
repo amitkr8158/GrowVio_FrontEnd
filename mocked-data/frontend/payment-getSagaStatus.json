@@ -1,0 +1,16 @@
+{
+  "service": "paymentService",
+  "function": "getSagaStatus",
+  "method": "GET",
+  "endpoint": "/api/payments/checkout/status/:sagaId",
+  "description": "Poll the status of a payment saga (used after verify).",
+  "request": {
+    "sagaId": "saga_7a1b2c3d"
+  },
+  "response": {
+    "sagaId": "saga_7a1b2c3d",
+    "completed": true,
+    "status": "PLAN_ACTIVATED",
+    "plan": "PREMIUM"
+  }
+}

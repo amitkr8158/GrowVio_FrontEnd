@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { ENV } from './env';
+import { installMockAdapter } from '../mocks/mockAdapter';
 
 const BASE_URL = import.meta.env.VITE_API_URL;
-if (!BASE_URL) throw new Error('VITE_API_URL is not set. Check your .env file.');
+if (!ENV.useMocks && !BASE_URL) throw new Error('VITE_API_URL is not set. Check your .env file.');
 
 const apiClient = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BASE_URL || 'http://localhost:8080',
   timeout: 30000,
 });
 
@@ -25,5 +27,9 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Local-only: serve every request from the in-browser mock backend instead
+// of the real API. Enabled via VITE_USE_MOCKS=true (see admin/.env.development.local).
+if (ENV.useMocks) installMockAdapter(apiClient);
 
 export default apiClient;

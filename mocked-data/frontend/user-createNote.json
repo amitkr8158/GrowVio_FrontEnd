@@ -1,0 +1,19 @@
+{
+  "service": "userService",
+  "function": "createNote",
+  "method": "POST",
+  "endpoint": "/api/users/notes",
+  "description": "Create a new note on a book.",
+  "request": {
+    "bookId": "bk_1001",
+    "text": "Track habits daily in a journal.",
+    "highlight": "Habit stacking"
+  },
+  "response": {
+    "id": "note_2",
+    "bookId": "bk_1001",
+    "text": "Track habits daily in a journal.",
+    "highlight": "Habit stacking",
+    "createdAt": "2026-08-11T09:12:00Z"
+  }
+}

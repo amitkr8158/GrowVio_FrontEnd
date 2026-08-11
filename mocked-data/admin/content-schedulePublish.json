@@ -1,0 +1,17 @@
+{
+  "service": "contentService",
+  "function": "schedulePublish",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/schedule",
+  "description": "Schedule a level to auto-publish at a future time.",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 5,
+    "scheduledAt": "2026-08-15T06:00:00Z"
+  },
+  "response": {
+    "success": true,
+    "level": 5,
+    "scheduledAt": "2026-08-15T06:00:00Z"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "service": "paymentService",
+  "function": "createOrder",
+  "method": "POST",
+  "endpoint": "/api/payments/create-order",
+  "description": "Create a Razorpay order for a subscription plan.",
+  "request": {
+    "plan": "PREMIUM",
+    "couponCode": "WELCOME20"
+  },
+  "response": {
+    "razorpayOrderId": "order_NkjX8yZ1mPq2Rt",
+    "keyId": "rzp_test_1DP5mmOlF5G5ag",
+    "amountPaise": 23920,
+    "currency": "INR",
+    "plan": "PREMIUM"
+  }
+}

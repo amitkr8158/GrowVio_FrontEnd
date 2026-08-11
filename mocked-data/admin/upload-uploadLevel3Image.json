@@ -1,0 +1,14 @@
+{
+  "service": "uploadService",
+  "function": "uploadLevel3Image",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/3/image",
+  "description": "Upload the Level-3 infographic image.",
+  "request": {
+    "bookId": "bk_1001",
+    "file": "(binary) level3-infographic.png"
+  },
+  "response": {
+    "url": "https://cdn.growvio.app/levels/bk_1001/3/infographic.png"
+  }
+}

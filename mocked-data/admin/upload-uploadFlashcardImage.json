@@ -1,0 +1,15 @@
+{
+  "service": "uploadService",
+  "function": "uploadFlashcardImage",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/2/cards/:order/image",
+  "description": "Upload the illustration image for a single Level-2 flashcard.",
+  "request": {
+    "bookId": "bk_1001",
+    "order": 3,
+    "file": "(binary) card-3-illustration.png"
+  },
+  "response": {
+    "url": "https://cdn.growvio.app/cards/bk_1001/3.png"
+  }
+}

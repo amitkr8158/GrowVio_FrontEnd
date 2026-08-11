@@ -1,0 +1,36 @@
+{
+  "service": "gamificationService",
+  "function": "getStats",
+  "method": "GET",
+  "endpoint": "/api/gamification/stats/:userId",
+  "description": "Fetch XP, streak, badges, and level info for a user.",
+  "request": {
+    "userId": 501
+  },
+  "response": {
+    "userId": 501,
+    "totalPoints": 4820,
+    "weeklyPoints": 340,
+    "streakDays": 12,
+    "badges": [
+      {
+        "name": "FIRST_READ",
+        "iconUrl": "https://cdn.growvio.app/badges/first-read.svg",
+        "unlockedAt": "2025-09-13T08:00:00Z"
+      },
+      {
+        "name": "STREAK_7",
+        "iconUrl": "https://cdn.growvio.app/badges/streak-7.svg",
+        "unlockedAt": "2025-09-20T08:00:00Z"
+      }
+    ],
+    "userLevel": 6,
+    "nextLevelXP": 5000,
+    "weeklyXP": 340,
+    "weeklyRank": 4,
+    "currentStreak": 12,
+    "weeklyGoalProgress": 0.68,
+    "level": 6,
+    "totalXP": 4820
+  }
+}

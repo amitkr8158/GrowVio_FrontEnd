@@ -1,0 +1,30 @@
+{
+  "service": "notificationService",
+  "function": "getHistory",
+  "method": "GET",
+  "endpoint": "/api/notifications/history/:userId",
+  "description": "Fetch notification history for a user.",
+  "request": {
+    "userId": 501
+  },
+  "response": [
+    {
+      "id": "ntf_1",
+      "userId": 501,
+      "type": "STREAK_REMINDER",
+      "title": "Don't lose your streak!",
+      "message": "Read today to keep your 12-day streak alive.",
+      "read": false,
+      "createdAt": "2026-08-11T07:00:00Z"
+    },
+    {
+      "id": "ntf_2",
+      "userId": 501,
+      "type": "NEW_BOOK",
+      "title": "New book added",
+      "message": "\"The Psychology of Money\" is now available.",
+      "read": true,
+      "createdAt": "2026-08-09T12:00:00Z"
+    }
+  ]
+}

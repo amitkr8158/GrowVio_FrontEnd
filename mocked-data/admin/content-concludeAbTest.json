@@ -1,0 +1,19 @@
+{
+  "service": "contentService",
+  "function": "concludeAbTest",
+  "method": "POST",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/ab-test/conclude",
+  "description": "Conclude an A/B test and select the winning variant.",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 1,
+    "winner": "B"
+  },
+  "response": {
+    "success": true,
+    "abTestId": "ab_5f6e7d8c",
+    "level": 1,
+    "winner": "B",
+    "concludedAt": "2026-08-14T09:00:00Z"
+  }
+}

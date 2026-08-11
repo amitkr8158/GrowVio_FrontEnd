@@ -1,0 +1,15 @@
+{
+  "service": "contentService",
+  "function": "releaseEditorLock",
+  "method": "DELETE",
+  "endpoint": "/api/admin/books/:bookId/levels/:levelNumber/editor-lock",
+  "description": "Release a previously acquired editor lock.",
+  "request": {
+    "bookId": "bk_1001",
+    "levelNumber": 4,
+    "data": {
+      "sessionId": "sess_a1b2c3d4"
+    }
+  },
+  "response": null
+}

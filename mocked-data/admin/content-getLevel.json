@@ -1,0 +1,28 @@
+{
+  "service": "contentService",
+  "function": "getLevel",
+  "method": "GET",
+  "endpoint": "/api/admin/books/:bookId/levels/:level",
+  "description": "Fetch full content for a single level.",
+  "request": {
+    "bookId": "bk_1001",
+    "level": 1
+  },
+  "response": {
+    "level": 1,
+    "status": "PUBLISHED",
+    "requiredPlan": "FREE",
+    "content": {
+      "keyPoints": [
+        {
+          "order": 1,
+          "heading": "Your brain is lying to you every morning",
+          "description": "Willpower is not the answer; systems are. Behavioral scientists at Stanford found habit cues outperform motivation 3-to-1. This single shift changes everything about how you plan your day.",
+          "emoji": "🧠",
+          "impactScore": "MINDBLOWN"
+        }
+      ]
+    },
+    "updatedAt": "2026-06-18T14:02:00Z"
+  }
+}

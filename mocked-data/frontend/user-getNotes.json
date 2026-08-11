@@ -1,0 +1,19 @@
+{
+  "service": "userService",
+  "function": "getNotes",
+  "method": "GET",
+  "endpoint": "/api/users/notes?bookId=:bookId",
+  "description": "Fetch notes the user has taken on a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": [
+    {
+      "id": "note_1",
+      "bookId": "bk_1001",
+      "text": "Apply the 2-minute rule to journaling.",
+      "highlight": "Make it easy",
+      "createdAt": "2026-07-20T08:00:00Z"
+    }
+  ]
+}

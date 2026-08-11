@@ -1,0 +1,22 @@
+{
+  "service": "bookService",
+  "function": "analytics",
+  "method": "GET",
+  "endpoint": "/api/admin/books/analytics",
+  "description": "Aggregate analytics across all books.",
+  "request": null,
+  "response": {
+    "totalBooks": 128,
+    "publishedBooks": 104,
+    "draftBooks": 24,
+    "totalReads": 482913,
+    "averageRating": 4.4,
+    "topBooks": [
+      {
+        "id": "bk_1001",
+        "title": "Atomic Habits",
+        "totalReads": 18234
+      }
+    ]
+  }
+}

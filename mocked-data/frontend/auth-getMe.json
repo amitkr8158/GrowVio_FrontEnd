@@ -1,0 +1,16 @@
+{
+  "service": "authService",
+  "function": "getMe",
+  "method": "GET",
+  "endpoint": "/api/users/me",
+  "description": "Fetch the currently authenticated user profile.",
+  "request": null,
+  "response": {
+    "id": 501,
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "role": "USER",
+    "plan": "PREMIUM",
+    "createdAt": "2025-09-12T06:45:00Z"
+  }
+}

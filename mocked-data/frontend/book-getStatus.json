@@ -1,0 +1,23 @@
+{
+  "service": "bookService",
+  "function": "getStatus",
+  "method": "GET",
+  "endpoint": "/api/books/:bookId/status",
+  "description": "Fetch publishing status/progress of all levels for a book.",
+  "request": {
+    "bookId": "bk_1001"
+  },
+  "response": {
+    "bookId": "bk_1001",
+    "status": "PUBLISHED",
+    "levels": {
+      "1": "PUBLISHED",
+      "2": "PUBLISHED",
+      "3": "PUBLISHED",
+      "4": "DRAFT",
+      "5": "DRAFT",
+      "6": "NOT_STARTED",
+      "7": "NOT_STARTED"
+    }
+  }
+}

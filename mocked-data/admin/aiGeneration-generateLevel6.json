@@ -1,0 +1,45 @@
+{
+  "service": "aiGenerationService",
+  "function": "generateLevel6",
+  "method": "CLAUDE_API",
+  "endpoint": "anthropic.messages.create (then PUT /api/admin/books/:bookId/levels/6)",
+  "description": "Generate Level 6 (Workbook: daily/weekly/monthly) via Claude, then save as a DRAFT level.",
+  "request": {
+    "bookId": "bk_1001",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "sections": 3
+  },
+  "response": {
+    "daily": {
+      "title": "Your Daily Habit Stack",
+      "sections": [
+        {
+          "title": "Today’s 2-minute habit",
+          "prompt": "What is the smallest version of the habit you can do today?",
+          "placeholder": "E.g., Read one page"
+        }
+      ]
+    },
+    "weekly": {
+      "title": "Weekly Identity Check-In",
+      "sections": [
+        {
+          "title": "What changed this week?",
+          "prompt": "Which habit felt automatic this week?",
+          "placeholder": "E.g., Morning journaling took no effort by Friday"
+        }
+      ]
+    },
+    "monthly": {
+      "title": "Monthly Transformation Log",
+      "sections": [
+        {
+          "title": "Who are you becoming?",
+          "prompt": "What identity shift have you noticed this month?",
+          "placeholder": "E.g., Before: I skip workouts. Now: I never miss leg day."
+        }
+      ]
+    }
+  }
+}
