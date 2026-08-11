@@ -181,8 +181,18 @@ const BookCard = ({ book }: { book: Book }) => (
     whileHover={{ y: -2 }}
     className="bg-background border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer"
   >
-    <div className="aspect-[3/4] bg-gradient-card flex items-center justify-center text-5xl relative">
-      {book.coverEmoji || "📖"}
+    <div className="aspect-[3/4] bg-gradient-card flex items-center justify-center text-5xl relative overflow-hidden">
+      {book.coverImageUrl ? (
+        <img
+          src={book.coverImageUrl}
+          alt={book.title}
+          className="h-full w-full object-cover"
+          loading="lazy"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+        />
+      ) : (
+        book.coverEmoji || "📖"
+      )}
       {book.isFeaturedFree && (
         <span className="absolute top-2 left-2 text-[10px] font-semibold bg-success text-white px-2 py-0.5 rounded-full">
           All Levels Free

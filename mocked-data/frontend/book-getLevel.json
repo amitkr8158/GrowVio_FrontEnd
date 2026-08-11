@@ -12,7 +12,16 @@
     "success": true,
     "data": {
       "level": 1,
-      "content": "Key Point 1: Habits are the compound interest of self-improvement..."
+      "content": {
+        "pdfUrl": "/books/level1/atomic-habits.pdf",
+        "keyPoints": [
+          {
+            "order": 1,
+            "heading": "Your brain is lying to you every morning",
+            "description": "Key Point 1: Habits are the compound interest of self-improvement..."
+          }
+        ]
+      }
     }
   }
 }

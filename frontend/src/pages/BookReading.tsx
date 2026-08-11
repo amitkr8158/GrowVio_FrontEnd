@@ -61,6 +61,9 @@ const BookReading = () => {
 
   const content = levelData?.data?.content;
   const currentLevelConfig = LEVELS[currentLevel - 1];
+  // For now, every level's mock content ships a pre-built PDF (see mocked-data/Book)
+  // — show that directly instead of the structured JSON underneath it.
+  const pdfUrl: string | null = (typeof content === "object" && content?.pdfUrl) || null;
 
   if (isLoading || levelLoading) {
     return (
@@ -180,7 +183,25 @@ const BookReading = () => {
 
             {/* Rendered content */}
             <div className="prose prose-lg max-w-none">
-              {content ? (
+              {pdfUrl ? (
+                <div className="not-prose space-y-3">
+                  <iframe
+                    src={pdfUrl}
+                    title={`${currentLevelConfig?.name} PDF`}
+                    className={`w-full h-[80vh] rounded-xl border ${darkMode ? "border-[#334155]" : "border-border"}`}
+                  />
+                  <div className="text-center">
+                    <a
+                      href={pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      Open PDF in a new tab &rarr;
+                    </a>
+                  </div>
+                </div>
+              ) : typeof content === "string" ? (
                 content.split("\n\n").map((block: string, i: number) => {
                   if (block.startsWith("## ")) return <h2 key={i} className="font-display text-2xl font-bold text-ink-1 mt-8 mb-4">{block.replace("## ", "")}</h2>;
                   if (block.startsWith("### ")) return <h3 key={i} className="font-display text-lg font-bold text-ink-1 mt-6 mb-3">{block.replace("### ", "")}</h3>;
@@ -217,7 +238,7 @@ const BookReading = () => {
             </div>
 
             {/* Level completion */}
-            {content && (
+            {(pdfUrl || typeof content === "string") && (
               <div className="mt-12 pt-8 border-t border-border text-center">
                 <div className="bg-gradient-card border border-border rounded-2xl p-8 inline-block">
                   <p className="text-sm text-ink-3 mb-2">You've reached the end of {currentLevelConfig?.name}</p>

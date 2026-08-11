@@ -20,13 +20,14 @@ export const MOCK_BOOKS = [
       "productivity",
       "self-improvement"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+    "coverImageUrl": "/books/cover/atomic-habits.jpeg",
     "freeSummary": "Small habits compound into remarkable results over time.",
     "premiumSummary": "A deep dive into the 4 laws of behavior change and how identity drives lasting habits.",
     "eli5Summary": "Tiny changes every day add up to big results, like a snowball rolling downhill.",
     "hindiTitle": "एटॉमिक हैबिट्स",
     "hindiFreeSummary": "छोटी आदतें समय के साथ बड़े परिणाम देती हैं।",
     "level1": {
+      "pdfUrl": "/books/level1/atomic-habits.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -59,6 +60,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/atomic-habits.pdf",
       "cards": [
         {
           "order": 1,
@@ -90,10 +92,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/atomic-habits.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/atomic-habits.png",
       "description": "A single-page visual map of the 4 Laws of Behavior Change: Make it Obvious, Attractive, Easy, and Satisfying — with icons for each."
     },
     "level4": {
+      "pdfUrl": "/books/level4/atomic-habits.pdf",
       "overview": "Atomic Habits argues that remarkable results come from tiny, consistent changes compounded daily — not from massive one-off efforts. James Clear reframes self-improvement as a systems problem, not a willpower problem.\n\nFor an Indian professional juggling career, family, and personal growth, this reframing matters right now: it replaces guilt-driven \"I should try harder\" thinking with a practical, repeatable design process anyone can run in 5 minutes a day.",
       "chapters": [
         {
@@ -125,6 +129,7 @@ export const MOCK_BOOKS = [
       "wordCount": 612
     },
     "level5": {
+      "pdfUrl": "/books/level5/atomic-habits.pdf",
       "questions": [
         {
           "id": "q1",
@@ -189,6 +194,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/atomic-habits.pdf",
       "daily": {
         "title": "Your Daily Habit Stack",
         "sections": [
@@ -221,6 +227,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/atomic-habits.pdf",
       "richText": "## 🧠 The Core Idea\nRemarkable results come from tiny habits compounded daily, not from massive one-off efforts.\n\n## ⚡ The Framework\nCue → Craving → Response → Reward\n\n## 🚀 The One Action\nPick a 2-minute version of the habit you want and do it today.",
       "wordCount": 240
     }
@@ -242,11 +249,12 @@ export const MOCK_BOOKS = [
       "productivity",
       "career"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/deep-work.jpg",
+    "coverImageUrl": "/books/cover/deep-work.jpeg",
     "freeSummary": "The ability to focus without distraction is becoming increasingly rare and valuable.",
     "premiumSummary": "A rigorous training regimen for cultivating deep, focused work in a world of constant notifications.",
     "eli5Summary": "Turn off distractions and focus hard on one thing to get better results, faster.",
     "level1": {
+      "pdfUrl": "/books/level1/deep-work.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -279,6 +287,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/deep-work.pdf",
       "cards": [
         {
           "order": 1,
@@ -310,10 +319,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/deep-work.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/deep-work.png",
       "description": "A visual comparing \"Deep Work\" vs \"Shallow Work\" outputs over a typical week, with a suggested time-blocking template."
     },
     "level4": {
+      "pdfUrl": "/books/level4/deep-work.pdf",
       "overview": "Deep Work argues that the ability to focus without distraction on cognitively demanding tasks is becoming rare — and therefore extremely valuable — in an economy flooded with shallow, reactive busywork.\n\nFor Indian professionals in IT services and startups where \"always online\" culture is the norm, this book is a direct counter-argument: protecting focus is not anti-social, it is the actual differentiator between average and exceptional output.",
       "chapters": [
         {
@@ -334,6 +345,7 @@ export const MOCK_BOOKS = [
       "wordCount": 480
     },
     "level5": {
+      "pdfUrl": "/books/level5/deep-work.pdf",
       "questions": [
         {
           "id": "q1",
@@ -398,6 +410,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/deep-work.pdf",
       "daily": {
         "title": "Your Daily Deep Work Block",
         "sections": [
@@ -430,6 +443,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/deep-work.pdf",
       "richText": "## 🧠 The Core Idea\nThe ability to focus without distraction on hard work is rare and increasingly valuable.\n\n## ⚡ The Framework\nSchedule → Protect → Ritualize → Drain the Shallows\n\n## 🚀 The One Action\nBlock 90 distraction-free minutes tomorrow morning.",
       "wordCount": 210
     }
@@ -451,11 +465,12 @@ export const MOCK_BOOKS = [
       "investing",
       "money-mindset"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/psychology-of-money.jpg",
+    "coverImageUrl": "/books/cover/psychology-of-money.jpeg",
     "freeSummary": "Doing well with money has little to do with intelligence and a lot to do with behavior.",
     "premiumSummary": "Housel breaks down 19 short stories exploring how emotions and biases — not spreadsheets — drive financial decisions.",
     "eli5Summary": "Being good with money is more about your habits and feelings than about being good at math.",
     "level1": {
+      "pdfUrl": "/books/level1/psychology-of-money.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -488,6 +503,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/psychology-of-money.pdf",
       "cards": [
         {
           "order": 1,
@@ -519,10 +535,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/psychology-of-money.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/psychology-of-money.png",
       "description": "A single-page chart of \"Compounding vs Time\" showing why Buffett earned 95% of his wealth after 60."
     },
     "level4": {
+      "pdfUrl": "/books/level4/psychology-of-money.pdf",
       "overview": "The Psychology of Money argues that financial success is a soft skill, not a technical one — driven by behavior, patience, and humility rather than intelligence or formulas.\n\nFor Indian professionals navigating SIPs, EMIs, and family financial pressure, this book reframes wealth-building as an emotional discipline you can practice, not a market you need to out-smart.",
       "chapters": [
         {
@@ -543,6 +561,7 @@ export const MOCK_BOOKS = [
       "wordCount": 460
     },
     "level5": {
+      "pdfUrl": "/books/level5/psychology-of-money.pdf",
       "questions": [
         {
           "id": "q1",
@@ -607,6 +626,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/psychology-of-money.pdf",
       "daily": {
         "title": "Your Daily Money Mindset",
         "sections": [
@@ -639,6 +659,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/psychology-of-money.pdf",
       "richText": "## 🧠 The Core Idea\nFinancial success is a soft skill driven by behavior, not intelligence.\n\n## ⚡ The Framework\nSave → Compound → Leave Room for Error → Stay Invested\n\n## 🚀 The One Action\nAutomate one savings transfer today.",
       "wordCount": 195
     }
@@ -660,11 +681,12 @@ export const MOCK_BOOKS = [
       "anthropology",
       "big-ideas"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/sapiens.jpg",
+    "coverImageUrl": "/books/cover/sapiens.jpeg",
     "freeSummary": "Homo sapiens conquered the world through a unique ability to believe in shared fictions.",
     "premiumSummary": "A sweeping tour of how myths, money, and empires were all invented — and how they invented us back.",
     "eli5Summary": "Humans rule the planet because we are really good at believing in made-up stories together, like money and countries.",
     "level1": {
+      "pdfUrl": "/books/level1/sapiens.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -697,6 +719,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/sapiens.pdf",
       "cards": [
         {
           "order": 1,
@@ -728,10 +751,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/sapiens.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/sapiens.png",
       "description": "A visual timeline of the Cognitive, Agricultural, and Scientific Revolutions across 70,000 years of human history."
     },
     "level4": {
+      "pdfUrl": "/books/level4/sapiens.pdf",
       "overview": "Sapiens argues that Homo sapiens dominate Earth not through physical strength but through a unique capacity to believe in collective fictions — money, nations, religions, human rights — that allow millions of strangers to cooperate at scale.\n\nFor an Indian reader living amid ancient civilizational myths and a modern nation-state simultaneously, the book offers a lens to see both as equally \"real\" social technologies, neither more natural than the other.",
       "chapters": [
         {
@@ -752,6 +777,7 @@ export const MOCK_BOOKS = [
       "wordCount": 520
     },
     "level5": {
+      "pdfUrl": "/books/level5/sapiens.pdf",
       "questions": [
         {
           "id": "q1",
@@ -816,6 +842,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": null,
       "daily": {
         "title": "Your Daily Myth-Spotting",
         "sections": [
@@ -848,6 +875,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/sapiens.pdf",
       "richText": "## 🧠 The Core Idea\nHumans dominate Earth because we alone can believe in, and cooperate around, shared fictions.\n\n## ⚡ The Framework\nCognitive Revolution → Agricultural Revolution → Scientific Revolution\n\n## 🚀 The One Action\nQuestion one \"obvious truth\" today — is it nature, or a shared story?",
       "wordCount": 205
     }
@@ -869,11 +897,12 @@ export const MOCK_BOOKS = [
       "business",
       "innovation"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/zero-to-one.jpg",
+    "coverImageUrl": "/books/cover/zero-to-one.jpeg",
     "freeSummary": "The next Bill Gates will not build an operating system; true progress means creating something new, not copying what works.",
     "premiumSummary": "Thiel's contrarian playbook for building monopolies through unique technology rather than competing in crowded markets.",
     "eli5Summary": "Copying what already works is going from 1 to n. Inventing something brand new is going from 0 to 1 — and that is where real value is created.",
     "level1": {
+      "pdfUrl": null,
       "keyPoints": [
         {
           "order": 1,
@@ -906,6 +935,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/zero-to-one.pdf",
       "cards": [
         {
           "order": 1,
@@ -937,10 +967,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/zero-to-one.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/zero-to-one.png",
       "description": "A 2x2 grid mapping \"Definite vs Indefinite\" against \"Optimist vs Pessimist\" — the four philosophies of the future from the book."
     },
     "level4": {
+      "pdfUrl": "/books/level4/zero-to-one.pdf",
       "overview": "Zero to One argues that real progress comes from creating something genuinely new (0 to 1) rather than copying and scaling existing ideas (1 to n) — and that the best businesses are built as temporary, defensible monopolies, not survivors of brutal competition.\n\nFor an Indian founder in a crowded startup ecosystem often chasing \"Uber for X\" ideas, this book is a direct challenge to find and defend a genuinely unique niche instead.",
       "chapters": [
         {
@@ -961,6 +993,7 @@ export const MOCK_BOOKS = [
       "wordCount": 470
     },
     "level5": {
+      "pdfUrl": "/books/level5/zero-to-one.pdf",
       "questions": [
         {
           "id": "q1",
@@ -1025,6 +1058,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/zero-to-one.pdf",
       "daily": {
         "title": "Your Daily Contrarian Practice",
         "sections": [
@@ -1057,6 +1091,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/zero-to-one.pdf",
       "richText": "## 🧠 The Core Idea\nReal progress comes from creating something new (0 to 1), not copying what already works (1 to n).\n\n## ⚡ The Framework\nFind a Niche → Build a Monopoly → Expand Deliberately\n\n## 🚀 The One Action\nWrite down one contrarian truth you believe today.",
       "wordCount": 190
     }
@@ -1078,11 +1113,12 @@ export const MOCK_BOOKS = [
       "philosophy",
       "longevity"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/ikigai.jpg",
+    "coverImageUrl": "/books/cover/ikigai.jpeg",
     "freeSummary": "Ikigai — your \"reason for being\" — is the secret ingredient behind Okinawa's remarkably long-lived population.",
     "premiumSummary": "Interviews with centenarians on the Japanese island of Okinawa reveal small daily practices tied to purpose, community, and movement.",
     "eli5Summary": "Ikigai means having a reason to wake up each morning — a mix of what you love, what you are good at, and what the world needs.",
     "level1": {
+      "pdfUrl": "/books/level1/ikigai.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -1115,6 +1151,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/ikigai.pdf",
       "cards": [
         {
           "order": 1,
@@ -1146,10 +1183,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": null,
       "infographicUrl": "https://cdn.growvio.app/infographics/ikigai.png",
       "description": "The classic 4-circle Ikigai Venn diagram: Love, Good At, Paid For, World Needs — with the Okinawan longevity habits mapped around it."
     },
     "level4": {
+      "pdfUrl": "/books/level4/ikigai.pdf",
       "overview": "Ikigai explores why the Japanese island of Okinawa has one of the world's highest concentrations of centenarians, tracing it to a blend of purpose, light daily movement, community, and a moderate diet — not any single miracle habit.\n\nFor Indian professionals facing burnout in high-pressure careers, the book offers a gentler, sustainable model of a long, purposeful life instead of a hustle-until-you-break one.",
       "chapters": [
         {
@@ -1170,6 +1209,7 @@ export const MOCK_BOOKS = [
       "wordCount": 440
     },
     "level5": {
+      "pdfUrl": "/books/level5/ikigai.pdf",
       "questions": [
         {
           "id": "q1",
@@ -1234,6 +1274,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/ikigai.pdf",
       "daily": {
         "title": "Your Daily Ikigai Practice",
         "sections": [
@@ -1266,6 +1307,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/ikigai.pdf",
       "richText": "## 🧠 The Core Idea\nA long, happy life comes from purpose, community, movement, and moderation — not a single miracle habit.\n\n## ⚡ The Framework\nLove → Good At → World Needs → Paid For\n\n## 🚀 The One Action\nName one thing you would do daily even unpaid.",
       "wordCount": 180
     }
@@ -1287,11 +1329,12 @@ export const MOCK_BOOKS = [
       "decision-making",
       "cognitive-bias"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/thinking-fast-and-slow.jpg",
+    "coverImageUrl": "/books/cover/thinking-fast-and-slow.jpeg",
     "freeSummary": "Your mind runs on two systems: fast, intuitive System 1 and slow, deliberate System 2 — and System 1 is running the show more than you think.",
     "premiumSummary": "Nobel laureate Kahneman maps dozens of predictable biases baked into human judgment, from anchoring to loss aversion.",
     "eli5Summary": "Your brain has a fast, instinctive autopilot and a slow, careful thinker — and the fast one makes most of your decisions without asking permission.",
     "level1": {
+      "pdfUrl": "/books/level1/thinking-fast-and-slow.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -1324,6 +1367,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/thinking-fast-and-slow.pdf",
       "cards": [
         {
           "order": 1,
@@ -1355,10 +1399,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/thinking-fast-and-slow.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/thinking-fast-and-slow.png",
       "description": "A side-by-side comparison chart of \"System 1 (Fast)\" vs \"System 2 (Slow)\" with 6 common biases mapped to each."
     },
     "level4": {
+      "pdfUrl": "/books/level4/thinking-fast-and-slow.pdf",
       "overview": "Thinking, Fast and Slow presents Daniel Kahneman's Nobel Prize-winning research into two modes of thought: fast, intuitive System 1, and slow, effortful System 2 — and catalogs the predictable ways System 1's shortcuts lead to systematic errors in judgment.\n\nFor Indian professionals making high-stakes decisions — hiring, investing, negotiating — this book is a practical field guide to recognizing your own mental blind spots before they cost you.",
       "chapters": [
         {
@@ -1379,6 +1425,7 @@ export const MOCK_BOOKS = [
       "wordCount": 500
     },
     "level5": {
+      "pdfUrl": "/books/level5/thinking-fast-and-slow.pdf",
       "questions": [
         {
           "id": "q1",
@@ -1443,6 +1490,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/thinking-fast-and-slow.pdf",
       "daily": {
         "title": "Your Daily Bias Check",
         "sections": [
@@ -1475,6 +1523,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/thinking-fast-and-slow.pdf",
       "richText": "## 🧠 The Core Idea\nYour mind runs on a fast, automatic System 1 and a slow, effortful System 2 — and System 1 drives more decisions than you realize.\n\n## ⚡ The Framework\nSystem 1 (Fast) → Substitution → Bias → System 2 (Slow, if engaged)\n\n## 🚀 The One Action\nBefore your next big decision, ask if you are answering the real question.",
       "wordCount": 200
     }
@@ -1496,11 +1545,12 @@ export const MOCK_BOOKS = [
       "product",
       "entrepreneurship"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/the-lean-startup.jpg",
+    "coverImageUrl": "/books/cover/the-lean-startup.jpeg",
     "freeSummary": "Startups succeed not by planning perfectly, but by running rapid, validated experiments on real customers.",
     "premiumSummary": "Ries' Build-Measure-Learn loop turns entrepreneurship from guesswork into a scientific, iterative discipline.",
     "eli5Summary": "Instead of building a perfect product in secret for a year, build a rough version fast, show it to real people, and fix it based on what they actually do.",
     "level1": {
+      "pdfUrl": "/books/level1/the-lean-startup.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -1533,6 +1583,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": null,
       "cards": [
         {
           "order": 1,
@@ -1564,10 +1615,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/the-lean-startup.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/lean-startup.png",
       "description": "A visual loop diagram of Build → Measure → Learn, with the MVP concept marked at the \"Build\" stage."
     },
     "level4": {
+      "pdfUrl": "/books/level4/the-lean-startup.pdf",
       "overview": "The Lean Startup reframes entrepreneurship as a series of rapid, testable experiments rather than a single big bet on a fixed plan, using the Build-Measure-Learn loop to validate ideas against real customer behavior before over-investing.\n\nFor Indian founders bootstrapping in a resource-constrained ecosystem, this book offers a way to test big ideas cheaply before burning limited runway on features nobody wants.",
       "chapters": [
         {
@@ -1588,6 +1641,7 @@ export const MOCK_BOOKS = [
       "wordCount": 450
     },
     "level5": {
+      "pdfUrl": "/books/level5/the-lean-startup.pdf",
       "questions": [
         {
           "id": "q1",
@@ -1652,6 +1706,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/the-lean-startup.pdf",
       "daily": {
         "title": "Your Daily Experiment Log",
         "sections": [
@@ -1684,6 +1739,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/the-lean-startup.pdf",
       "richText": "## 🧠 The Core Idea\nStartups succeed through rapid, validated experiments, not perfect long-range plans.\n\n## ⚡ The Framework\nBuild (MVP) → Measure (Real Data) → Learn (Pivot or Persevere)\n\n## 🚀 The One Action\nDesign the smallest possible test for your riskiest assumption this week.",
       "wordCount": 185
     }
@@ -1705,11 +1761,12 @@ export const MOCK_BOOKS = [
       "wealth",
       "mindset"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/rich-dad-poor-dad.jpg",
+    "coverImageUrl": "/books/cover/rich-dad-poor-dad.jpeg",
     "freeSummary": "The rich do not work for money — they make money work for them, by acquiring assets that generate income.",
     "premiumSummary": "Kiyosaki contrasts the financial lessons of his own \"poor dad\" (employee mindset) with his best friend's \"rich dad\" (investor mindset).",
     "eli5Summary": "Rich people buy things that put money in their pocket every month. Poor people buy things that take money out. Knowing the difference changes everything.",
     "level1": {
+      "pdfUrl": "/books/level1/rich-dad-poor-dad.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -1742,6 +1799,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/rich-dad-poor-dad.pdf",
       "cards": [
         {
           "order": 1,
@@ -1773,10 +1831,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/rich-dad-poor-dad.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/rich-dad-poor-dad.png",
       "description": "A visual \"Cash Flow Quadrant\" comparing Employee, Self-Employed, Business Owner, and Investor income patterns."
     },
     "level4": {
+      "pdfUrl": "/books/level4/rich-dad-poor-dad.pdf",
       "overview": "Rich Dad Poor Dad contrasts two father figures — one highly educated but financially struggling, one a self-made entrepreneur — to argue that financial literacy, not formal education or income level, is what separates wealth-builders from the perpetually paycheck-dependent.\n\nFor Indian readers raised on the \"get a stable job\" script, the book is a direct challenge to rethink homeownership, salary, and risk from a cash-flow perspective.",
       "chapters": [
         {
@@ -1797,6 +1857,7 @@ export const MOCK_BOOKS = [
       "wordCount": 430
     },
     "level5": {
+      "pdfUrl": "/books/level5/rich-dad-poor-dad.pdf",
       "questions": [
         {
           "id": "q1",
@@ -1861,6 +1922,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/rich-dad-poor-dad.pdf",
       "daily": {
         "title": "Your Daily Cash Flow Check",
         "sections": [
@@ -1893,6 +1955,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/rich-dad-poor-dad.pdf",
       "richText": "## 🧠 The Core Idea\nThe rich acquire income-generating assets; the financially stuck acquire liabilities disguised as rewards.\n\n## ⚡ The Framework\nAsset (money in) vs Liability (money out)\n\n## 🚀 The One Action\nAudit your 3 biggest expenses as assets or liabilities today.",
       "wordCount": 175
     }
@@ -1914,11 +1977,12 @@ export const MOCK_BOOKS = [
       "self-improvement",
       "productivity"
     ],
-    "coverImageUrl": "https://cdn.growvio.app/covers/7-habits.jpg",
+    "coverImageUrl": "/books/cover/7-habits-of-highly-effective-people.jpeg",
     "freeSummary": "True effectiveness comes from character, not quick-fix personality tricks — starting with taking full responsibility for your choices.",
     "premiumSummary": "Covey's 7-habit framework moves readers from dependence to independence to interdependence through principle-centered living.",
     "eli5Summary": "Being truly effective is not about tricks — it is about building good character habits, like being honest, planning ahead, and listening to others.",
     "level1": {
+      "pdfUrl": "/books/level1/7-habits-of-highly-effective-people.pdf",
       "keyPoints": [
         {
           "order": 1,
@@ -1951,6 +2015,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level2": {
+      "pdfUrl": "/books/level2/7-habits-of-highly-effective-people.pdf",
       "cards": [
         {
           "order": 1,
@@ -1982,10 +2047,12 @@ export const MOCK_BOOKS = [
       ]
     },
     "level3": {
+      "pdfUrl": "/books/level3/7-habits-of-highly-effective-people.pdf",
       "infographicUrl": "https://cdn.growvio.app/infographics/7-habits.png",
       "description": "The Maturity Continuum visual: Dependence → Independence (Habits 1-3) → Interdependence (Habits 4-6), with Habit 7 (Sharpen the Saw) as renewal."
     },
     "level4": {
+      "pdfUrl": "/books/level4/7-habits-of-highly-effective-people.pdf",
       "overview": "The 7 Habits of Highly Effective People argues that lasting effectiveness comes from character and principles, not personality tricks or quick fixes — moving a person from Dependence to Independence to Interdependence through a structured set of 7 habits.\n\nFor Indian professionals balancing intense career ambition with family and community obligations, the book's \"interdependence\" stage — win-win thinking, genuine listening — offers a principled way to succeed without sacrificing relationships.",
       "chapters": [
         {
@@ -2006,6 +2073,7 @@ export const MOCK_BOOKS = [
       "wordCount": 510
     },
     "level5": {
+      "pdfUrl": "/books/level5/7-habits-of-highly-effective-people.pdf",
       "questions": [
         {
           "id": "q1",
@@ -2070,6 +2138,7 @@ export const MOCK_BOOKS = [
       ]
     },
     "level6": {
+      "pdfUrl": "/books/level6/7-habits-of-highly-effective-people.pdf",
       "daily": {
         "title": "Your Daily Proactivity Practice",
         "sections": [
@@ -2102,6 +2171,7 @@ export const MOCK_BOOKS = [
       }
     },
     "level7": {
+      "pdfUrl": "/books/level7/7-habits-of-highly-effective-people.pdf",
       "richText": "## 🧠 The Core Idea\nLasting effectiveness comes from character and principles, moving from dependence to independence to interdependence.\n\n## ⚡ The Framework\nBe Proactive → Begin with End in Mind → Put First Things First → Think Win-Win → Seek First to Understand → Synergize → Sharpen the Saw\n\n## 🚀 The One Action\nWrite one line of your personal mission statement today.",
       "wordCount": 215
     }

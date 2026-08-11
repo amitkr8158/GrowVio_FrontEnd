@@ -20,7 +20,10 @@ const schema = z.object({
   author:        z.string().min(1, 'Author required').max(100),
   genre:         z.enum(GENRES, { message: 'Select a genre' }),
   tags:          z.array(z.string()).default([]),
-  coverImageUrl: z.string().url('Enter a valid URL').optional().or(z.literal('')),
+  coverImageUrl: z.string().refine(
+    (v) => /^https?:\/\//.test(v) || v.startsWith('/'),
+    'Enter a valid URL or a path starting with /'
+  ).optional().or(z.literal('')),
   isPremium:     z.boolean().default(false),
   description:   z.string().max(500, 'Max 500 characters').optional(),
 });

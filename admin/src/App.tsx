@@ -9,6 +9,7 @@ import { BooksListPage } from './pages/BooksListPage';
 import { BookCreatePage } from './pages/BookCreatePage';
 import { BookDetailPage } from './pages/BookDetailPage';
 import { BookEditPage } from './pages/BookEditPage';
+import { BookPreviewPage } from './pages/BookPreviewPage';
 import { ContentEditorPage } from './pages/ContentEditorPage';
 import { RichEditorPage } from './pages/RichEditorPage';
 import { ContentCostsPage } from './pages/ContentCostsPage';
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/books/new" element={<BookCreatePage />} />
                     <Route path="/books/:bookId" element={<BookDetailPage />} />
                     <Route path="/books/:bookId/edit" element={<BookEditPage />} />
+                    <Route path="/books/:bookId/preview" element={<BookPreviewPage />} />
                     <Route path="/books/:bookId/content" element={<ContentEditorPage />} />
                     <Route path="/books/:bookId/levels/:levelNumber/editor" element={<RichEditorPage />} />
                     <Route path="/books/:bookId/levels/:levelNumber/ab-test" element={<AbTestPage />} />

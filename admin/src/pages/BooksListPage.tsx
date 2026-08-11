@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PlusCircle, Pencil, Layers, Trash2, CheckCircle2, Minus } from 'lucide-react';
+import { PlusCircle, Pencil, Layers, Trash2, CheckCircle2, Minus, Eye } from 'lucide-react';
 import { useBooks, useDeleteBook } from '../hooks/useBooks';
 import type { Book } from '../types/book.types';
 
@@ -225,6 +225,13 @@ export function BooksListPage() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => navigate(`/books/${book.id}/preview`)}
+                        title="Preview"
+                        className="rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+                      >
+                        <Eye className="h-3.5 w-3.5" />
+                      </button>
                       <button
                         onClick={() => navigate(`/books/${book.id}/edit`)}
                         title="Edit"

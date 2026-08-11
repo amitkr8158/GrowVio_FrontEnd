@@ -818,7 +818,7 @@ export function ContentEditorPage() {
   const levelStatus = levelData?.status ?? 'DRAFT';
   const levelName   = LEVEL_NAMES[activeLevel] ?? `Level ${activeLevel}`;
 
-  const levelsArr = (levels as { level: number; status: string }[] | null) ?? [];
+  const levelsArr = (levels as { bookId: string; levels: { level: number; status: string }[] } | null)?.levels ?? [];
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">

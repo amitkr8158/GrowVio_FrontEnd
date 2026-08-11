@@ -23,7 +23,7 @@
           "habits",
           "productivity"
         ],
-        "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+        "coverImageUrl": "/books/cover/atomic-habits.jpeg",
         "isPremium": false,
         "description": "An easy and proven way to build good habits and break bad ones.",
         "status": "PUBLISHED",
@@ -39,7 +39,7 @@
           "habits",
           "productivity"
         ],
-        "coverImageUrl": "https://cdn.growvio.app/covers/atomic-habits.jpg",
+        "coverImageUrl": "/books/cover/atomic-habits.jpeg",
         "isPremium": false,
         "description": "An easy and proven way to build good habits and break bad ones.",
         "status": "DRAFT",
