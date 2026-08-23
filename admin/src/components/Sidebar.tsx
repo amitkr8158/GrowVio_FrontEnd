@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, PlusCircle, DollarSign, User } from 'lucide-react';
+import { LayoutDashboard, BookOpen, PlusCircle, DollarSign, User, Sparkles } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const links = [
@@ -7,6 +7,7 @@ const links = [
   { to: '/books', icon: BookOpen, label: 'Books', end: false },
   { to: '/books/new', icon: PlusCircle, label: '+ New Book', end: false },
   { to: '/content-costs', icon: DollarSign, label: 'Content Costs', end: false },
+  { to: '/creator', icon: Sparkles, label: 'Creator Studio', end: false },
   { to: '/profile', icon: User, label: 'Profile', end: false },
 ];
 

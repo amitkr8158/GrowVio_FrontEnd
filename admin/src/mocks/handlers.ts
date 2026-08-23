@@ -1,7 +1,8 @@
 // Route table + dispatcher for the local mock backend. Every endpoint the
 // admin's services/*.ts call is registered here — see mocked-data/README.md
 // for the full endpoint list this mirrors.
-import { db, persist, toPublicUser, toAdminBook, getAuthUser, makeToken } from './store';
+import { db, persist, toPublicUser, toAdminBook, getAuthUser, makeToken, type CreatorLayerStatus } from './store';
+import { LAYER_META } from './data/creatorLayers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;
@@ -166,6 +167,174 @@ on('POST', '/api/admin/books/:bookId/unpublish', (ctx) => {
   book.status = 'DRAFT';
   persist();
   return ok({ success: true, bookId: book.id, status: 'DRAFT' });
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+// CREATOR STUDIO — services/creatorService.ts
+// (ported from user/src/mocks/handlers.ts; requireAdmin() already checks the
+// same ADMIN/SUPER_ADMIN/CONTENT_CREATOR role set user's requireCreator() did)
+// ══════════════════════════════════════════════════════════════════════════
+
+// Ungated read of a single level's content — creatorService.getLevel() hits
+// this same path. user/ has its own copy of this route for its reading flow;
+// admin needs its own since Creator Studio's editor lives here now.
+on('GET', '/api/books/:bookId/level/:level', ({ params }) => {
+  const book = findBook(params.bookId);
+  if (!book) return fail(404, 'Book not found');
+  const content = book[`level${params.level}`];
+  if (!content) return fail(404, `Level ${params.level} not found for this book`);
+  return ok({ success: true, data: { level: Number(params.level), content } });
+});
+
+function layerCompleteness(book: AnyRecord, level: number) {
+  const content = book[`level${level}`] ?? {};
+  let count = 0;
+  let target = 1;
+  switch (level) {
+    case 1: count = (content.keyPoints ?? []).length; target = 10; break;
+    case 2: count = (content.cards ?? []).length; target = 8; break;
+    case 3: count = content.infographicUrl ? 1 : 0; target = 1; break;
+    case 4: count = (content.chapters ?? []).length; target = 6; break;
+    case 5: count = (content.questions ?? []).length; target = 12; break;
+    case 6: count = (content.daily?.sections ?? []).length + (content.weekly?.sections ?? []).length + (content.monthly?.sections ?? []).length; target = 6; break;
+    case 7: count = content.richText ? 1 : 0; target = 1; break;
+    default: break;
+  }
+  const percent = Math.min(100, Math.round((count / Math.max(target, 1)) * 100));
+  const key = `${book.id}:${level}`;
+  const entry = db.creatorLayers[key] ?? { status: 'Draft' as CreatorLayerStatus, updatedAt: book.updatedAt || book.createdAt, version: 0 };
+  return { count, target, percent, status: entry.status, updatedAt: entry.updatedAt, version: entry.version, pdfUrl: content.pdfUrl ?? null };
+}
+
+function bookLayerSummary(book: AnyRecord) {
+  const layers = LAYER_META.map((m) => ({ meta: m, ...layerCompleteness(book, m.level) }));
+  const overall = Math.round(layers.reduce((s, l) => s + l.percent, 0) / layers.length);
+  const done = layers.filter((l) => l.status === 'Published').length;
+  return { layers, overall, done };
+}
+
+on('GET', '/api/creator/books', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const authored = db.books.map((b) => {
+    const { overall, done } = bookLayerSummary(b);
+    return { id: b.id, slug: b.slug, title: b.title, author: b.author, coverImageUrl: b.coverImageUrl, coverEmoji: b.coverEmoji, isPremium: b.isPremium, overall, done };
+  });
+  return ok({ books: authored });
+});
+
+on('GET', '/api/creator/books/:bookId/layers', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const book = findBook(ctx.params.bookId);
+  if (!book) return fail(404, 'Book not found');
+  const { layers, overall, done } = bookLayerSummary(book);
+  return ok({ book: { id: book.id, slug: book.slug, title: book.title, author: book.author, coverImageUrl: book.coverImageUrl }, layers, overall, done });
+});
+
+on('PUT', '/api/books/:bookId/level/:level', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const { params, body } = ctx;
+  const book = findBook(params.bookId);
+  if (!book) return fail(404, 'Book not found');
+  const level = Number(params.level);
+  book[`level${level}`] = { ...book[`level${level}`], ...body };
+  book.updatedAt = new Date().toISOString();
+  const key = `${book.id}:${level}`;
+  const entry = db.creatorLayers[key] ?? { status: 'Draft' as CreatorLayerStatus, updatedAt: book.updatedAt, version: 0 };
+  entry.updatedAt = book.updatedAt;
+  db.creatorLayers[key] = entry;
+  persist();
+  return ok({ success: true, level, status: entry.status, updatedAt: entry.updatedAt });
+});
+
+function transition(ctx: Ctx, status: CreatorLayerStatus, note: string) {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const book = findBook(ctx.params.bookId);
+  if (!book) return fail(404, 'Book not found');
+  const level = Number(ctx.params.level);
+  const key = `${book.id}:${level}`;
+  const now = new Date().toISOString();
+  const prev = db.creatorLayers[key] ?? { status: 'Draft' as CreatorLayerStatus, updatedAt: now, version: 0 };
+  const version = status === 'Published' ? prev.version + 1 : prev.version;
+  db.creatorLayers[key] = { status, updatedAt: now, version };
+  if (status === 'Published') {
+    const by = (ctx.auth as AnyRecord)?.name ?? (ctx.auth as AnyRecord)?.email ?? 'Creator';
+    db.creatorVersions[key] = [{ version, note, at: now, by }, ...(db.creatorVersions[key] ?? [])].slice(0, 20);
+  }
+  persist();
+  return ok({ success: true, level, status, version, updatedAt: now });
+}
+
+on('POST', '/api/books/:bookId/level/:level/submit', (ctx) => transition(ctx, 'In Review', 'Submitted for review'));
+on('POST', '/api/books/:bookId/level/:level/approve', (ctx) => transition(ctx, 'Approved', 'Approved by editor'));
+on('POST', '/api/books/:bookId/level/:level/publish', (ctx) => transition(ctx, 'Published', 'Published'));
+on('POST', '/api/books/:bookId/level/:level/revert', (ctx) => transition(ctx, 'Draft', 'Reverted to draft'));
+
+on('GET', '/api/creator/raw-files', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const files = db.books.flatMap((b) =>
+    LAYER_META.map((m) => {
+      const content = b[`level${m.level}`] ?? {};
+      const url: string | null = content.pdfUrl ?? null;
+      if (!url) return null;
+      return {
+        id: `${b.id}-${m.level}`,
+        bookId: b.id,
+        bookTitle: b.title,
+        level: m.level,
+        layer: m.name,
+        name: url.split('/').pop(),
+        url,
+      };
+    }).filter(Boolean),
+  );
+  return ok({ files });
+});
+
+on('GET', '/api/creator/media', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const media = db.books.flatMap((b) => {
+    const items: AnyRecord[] = [];
+    if (b.coverImageUrl) items.push({ id: `${b.id}-cover`, bookId: b.id, bookTitle: b.title, kind: 'Cover', url: b.coverImageUrl });
+    const infographic = b.level3?.infographicUrl;
+    if (infographic) items.push({ id: `${b.id}-infographic`, bookId: b.id, bookTitle: b.title, kind: 'Infosummary', url: infographic });
+    return items;
+  });
+  return ok({ media });
+});
+
+on('GET', '/api/creator/versions', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const entries = Object.entries(db.creatorVersions).flatMap(([key, versions]) => {
+    const [bookId, levelStr] = key.split(':');
+    const book = findBook(bookId);
+    const meta = LAYER_META.find((m) => m.level === Number(levelStr));
+    return versions.map((v) => ({ ...v, bookId, bookTitle: book?.title ?? bookId, level: Number(levelStr), layer: meta?.name ?? `Level ${levelStr}` }));
+  });
+  entries.sort((a, b) => (a.at < b.at ? 1 : -1));
+  return ok({ versions: entries });
+});
+
+on('GET', '/api/creator/publish-queue', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const queue = Object.entries(db.creatorLayers)
+    .filter(([, entry]) => entry.status === 'In Review')
+    .map(([key, entry]) => {
+      const [bookId, levelStr] = key.split(':');
+      const book = findBook(bookId);
+      const meta = LAYER_META.find((m) => m.level === Number(levelStr));
+      return { bookId, bookTitle: book?.title ?? bookId, level: Number(levelStr), layer: meta?.name ?? `Level ${levelStr}`, updatedAt: entry.updatedAt };
+    });
+  return ok({ queue });
+});
+
+on('GET', '/api/creator/analytics', (ctx) => {
+  const guard = requireAdmin(ctx); if (guard) return guard;
+  const byBook = db.books.map((b) => ({ bookId: b.id, title: b.title, reads: b.totalReads ?? 0, rating: b.rating ?? 0 }));
+  const totalReads = byBook.reduce((s, b) => s + b.reads, 0);
+  const avgRating = Math.round((byBook.reduce((s, b) => s + b.rating, 0) / Math.max(byBook.length, 1)) * 10) / 10;
+  const publishedLayers = Object.values(db.creatorLayers).filter((e) => e.status === 'Published').length;
+  const inReviewLayers = Object.values(db.creatorLayers).filter((e) => e.status === 'In Review').length;
+  return ok({ totalReads, avgRating, publishedLayers, inReviewLayers, byBook: byBook.sort((a, b) => b.reads - a.reads) });
 });
 
 // ══════════════════════════════════════════════════════════════════════════

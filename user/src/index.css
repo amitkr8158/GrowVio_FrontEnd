@@ -20,6 +20,9 @@
     --color-danger-lt: 0 93% 94%;
     --color-teal: 191 92% 37%;
     --color-teal-lt: 199 92% 94%;
+    /* Pro tier accent — distinct from primary purple */
+    --color-pro: 330 81% 46%;
+    --color-pro-lt: 330 86% 95%;
 
     /* Surfaces */
     --background: 0 0% 100%;
@@ -154,5 +157,15 @@
   }
   .shadow-gold {
     box-shadow: var(--shadow-gold);
+  }
+  .surface-card {
+    @apply rounded-2xl border border-border bg-card shadow-sm;
+  }
+  .scroll-slim::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .scroll-slim::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-ink-4;
   }
 }

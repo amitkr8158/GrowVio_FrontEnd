@@ -1,6 +1,7 @@
 import * as Sentry from '@sentry/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'sonner';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { LoginPage } from './pages/LoginPage';
@@ -15,6 +16,16 @@ import { RichEditorPage } from './pages/RichEditorPage';
 import { ContentCostsPage } from './pages/ContentCostsPage';
 import { AbTestPage } from './pages/AbTestPage';
 import { ProfilePage } from './pages/ProfilePage';
+import CreatorDashboard from './pages/creator/CreatorDashboard';
+import CreatorBooks from './pages/creator/CreatorBooks';
+import CreatorBookWorkspace from './pages/creator/CreatorBookWorkspace';
+import CreatorLayerEditor from './pages/creator/CreatorLayerEditor';
+import CreatorRawFiles from './pages/creator/CreatorRawFiles';
+import CreatorMedia from './pages/creator/CreatorMedia';
+import CreatorAI from './pages/creator/CreatorAI';
+import CreatorPublish from './pages/creator/CreatorPublish';
+import CreatorVersions from './pages/creator/CreatorVersions';
+import CreatorAnalytics from './pages/creator/CreatorAnalytics';
 
 const qc = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 5 * 60 * 1000 } },
@@ -23,9 +34,31 @@ const qc = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={qc}>
+      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          {/* Creator Studio — self-contained shell/nav (CreatorShell), so it
+              intentionally sits outside the admin Layout/Sidebar chrome. */}
+          <Route
+            path="/creator/*"
+            element={
+              <ProtectedRoute>
+                <Routes>
+                  <Route path="/" element={<CreatorDashboard />} />
+                  <Route path="/books" element={<CreatorBooks />} />
+                  <Route path="/books/:bookId" element={<CreatorBookWorkspace />} />
+                  <Route path="/layers/:bookId/:layer" element={<CreatorLayerEditor />} />
+                  <Route path="/raw-files" element={<CreatorRawFiles />} />
+                  <Route path="/media" element={<CreatorMedia />} />
+                  <Route path="/ai" element={<CreatorAI />} />
+                  <Route path="/publish" element={<CreatorPublish />} />
+                  <Route path="/versions" element={<CreatorVersions />} />
+                  <Route path="/analytics" element={<CreatorAnalytics />} />
+                </Routes>
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/*"
             element={

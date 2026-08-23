@@ -74,6 +74,10 @@ export default {
           DEFAULT: "hsl(var(--color-teal))",
           light: "hsl(var(--color-teal-lt))",
         },
+        pro: {
+          DEFAULT: "hsl(var(--color-pro))",
+          light: "hsl(var(--color-pro-lt))",
+        },
         ink: {
           1: "hsl(var(--ink-1))",
           2: "hsl(var(--ink-2))",

@@ -5,11 +5,20 @@
 import { MOCK_USERS } from './data/users';
 import { MOCK_BOOKS } from './data/books';
 import { MOCK_CONTENT_LEVELS } from './data/contentLevels';
+import { LAYER_META } from './data/creatorLayers';
 
 const STORAGE_KEY = 'growvio_admin_mock_state_v1';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;
+
+export type CreatorLayerStatus = 'Draft' | 'In Review' | 'Approved' | 'Published';
+
+export interface CreatorLayerEntry {
+  status: CreatorLayerStatus;
+  updatedAt: string;
+  version: number;
+}
 
 export interface MockState {
   users: AnyRecord[];
@@ -23,10 +32,45 @@ export interface MockState {
   schedules: Record<string, { scheduledAt: string }>;
   abTests: Record<string, { abTestId: string; status: string; winner?: string; variantBContent?: string }>;
   supportingDocs: Record<string, AnyRecord[]>;
+  // Creator Studio — per book, per level(1-7) authoring/publish status.
+  // Keyed as `${bookId}:${level}`.
+  creatorLayers: Record<string, CreatorLayerEntry>;
+  // Creator Studio — version history per `${bookId}:${level}`, newest first.
+  creatorVersions: Record<string, { version: number; note: string; at: string; by: string }[]>;
 }
 
 function clone<T>(value: T): T {
   return typeof structuredClone === 'function' ? structuredClone(value) : JSON.parse(JSON.stringify(value));
+}
+
+// A level "has content" if its structured payload carries more than just a
+// pdfUrl — used to seed a believable initial Creator Studio status.
+function hasLayerContent(book: AnyRecord, level: number): boolean {
+  const content = book?.[`level${level}`];
+  if (!content || typeof content !== 'object') return false;
+  const keys = Object.keys(content).filter((k) => k !== 'pdfUrl');
+  return keys.some((k) => {
+    const v = content[k];
+    if (Array.isArray(v)) return v.length > 0;
+    if (typeof v === 'string') return v.trim().length > 0;
+    return v != null;
+  });
+}
+
+function seedCreatorLayers(books: AnyRecord[]): MockState['creatorLayers'] {
+  const out: MockState['creatorLayers'] = {};
+  for (const book of books) {
+    for (const meta of LAYER_META) {
+      const key = `${book.id}:${meta.level}`;
+      const seeded = hasLayerContent(book, meta.level);
+      out[key] = {
+        status: seeded ? (meta.level <= 3 ? 'Published' : meta.level === 4 ? 'Approved' : 'In Review') : 'Draft',
+        updatedAt: book.updatedAt || book.createdAt || new Date().toISOString(),
+        version: seeded ? 1 : 0,
+      };
+    }
+  }
+  return out;
 }
 
 function seed(): MockState {
@@ -37,9 +81,10 @@ function seed(): MockState {
       versions[`${bookId}:${l.level}`] = { draftVersion: l.status === 'PUBLISHED' ? 1 : 0, publishedVersion: l.status === 'PUBLISHED' ? 1 : 0 };
     }
   }
+  const books = clone(MOCK_BOOKS as unknown as AnyRecord[]);
   return {
     users: clone(MOCK_USERS as unknown as AnyRecord[]),
-    books: clone(MOCK_BOOKS as unknown as AnyRecord[]),
+    books,
     levelStatus,
     drafts: {},
     published: {},
@@ -53,6 +98,8 @@ function seed(): MockState {
         { type: 'INFOGRAPHIC', url: 'https://cdn.growvio.app/refs/atomic-habits-infographic.png', uploadedAt: '2026-05-02T10:00:00Z' },
       ],
     },
+    creatorLayers: seedCreatorLayers(books),
+    creatorVersions: {},
   };
 }
 
